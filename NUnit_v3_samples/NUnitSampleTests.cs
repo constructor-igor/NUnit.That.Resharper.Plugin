@@ -10,7 +10,7 @@ namespace NUnit_v3_samples
         {
             int expected = 3;
             int actual = 2 + 1;
-            Assert.That(actual, Is.EqualTo(expected));
+            Assert.That(actual, Is.EqualTo(expected));      // was in nunit v2 Assert.AreEqual(expected, actual);
         }
 
         [Test]
