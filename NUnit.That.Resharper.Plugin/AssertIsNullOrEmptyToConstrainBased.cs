@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.Bulbs;
@@ -10,19 +10,14 @@ using JetBrains.TextControl;
 
 namespace NUnit.That.Resharper.Plugin
 {
-    /*
-     * http://dev-ua.livejournal.com/774.html
-     * http://www.nuget.org/packages/JetBrains.ReSharper.SDK/8.2.1158
-     * */
-
     [ContextAction(Group = "C#",
         Name = "Replace old-style Assert methods with constraint-based syntax.",
-        Description = "Replace old-style Assert methods with constraint-based syntax; e.g., changes Assert.Equal(10, MyClass.MyMethod()) to Assert.That(MyClass.MyMethod(), Is.EqualTo(10))",
+        Description = "Replace old-style Assert methods with constraint-based syntax; e.g., changes Assert.IsNullOrEmpty(MyClass.MyMethod()) to Assert.That(MyClass.MyMethod(), Is.Null.Or.Empty)",
         Priority = 15)]
-    public class AssertEqualsToConstrainBased : BulbActionBase, IContextAction
+    public class AssertIsNullOrEmptyToConstrainBased : BulbActionBase, IContextAction
     {
-        private readonly ICSharpContextActionDataProvider m_provider;  
-        public AssertEqualsToConstrainBased(ICSharpContextActionDataProvider provider)
+        private readonly ICSharpContextActionDataProvider m_provider;
+        public AssertIsNullOrEmptyToConstrainBased(ICSharpContextActionDataProvider provider)
         {
             m_provider = provider;
         }
@@ -35,15 +30,15 @@ namespace NUnit.That.Resharper.Plugin
             {
                 IList<ICSharpArgument> args = expression.Arguments;
 
-//                var sb = new StringBuilder("Assert.That(");
-//                sb.Append(args[1].GetText());
-//                sb.Append(", Is.EqualTo(");
-//                sb.Append(args[0].GetText());
-//                sb.Append("))");
+                //                var sb = new StringBuilder("Assert.That(");
+                //                sb.Append(args[1].GetText());
+                //                sb.Append(", Is.EqualTo(");
+                //                sb.Append(args[0].GetText());
+                //                sb.Append("))");
 
                 // now replace everything
-                const string NEW_EXPRESSION_FORMAT = "Assert.That($0, Is.EqualTo($1))";
-                object[] newExpressionArgs = {args[1].GetText(), args[0].GetText()};
+                const string NEW_EXPRESSION_FORMAT = "Assert.That($0, Is.Null.Or.Empty)";
+                object[] newExpressionArgs = { args[0].GetText() };
 
                 //ICSharpExpression newExp = m_provider.ElementFactory.CreateExpression(sb.ToString(), new object[] { });
                 ICSharpExpression newExp = m_provider.ElementFactory.CreateExpression(NEW_EXPRESSION_FORMAT, newExpressionArgs);
@@ -66,9 +61,9 @@ namespace NUnit.That.Resharper.Plugin
         public bool IsAvailable(JetBrains.Util.IUserDataHolder cache)
         {
             IInvocationExpression expression = m_provider.GetSelectedElement<IInvocationExpression>(false, false);
-            if (expression != null && expression.InvokedExpression.GetText() == "Assert.AreEqual")
+            if (expression != null && expression.InvokedExpression.GetText() == "Assert.IsNullOrEmpty")
             {
-                if (expression.Arguments.Count == 2)
+                if (expression.Arguments.Count == 1)
                 {
                     return true;
                 }

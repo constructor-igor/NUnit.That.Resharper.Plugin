@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertEqualsToConstrainBased.cs" />
+    <Compile Include="AssertIsNullOrEmptyToConstrainBased.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
