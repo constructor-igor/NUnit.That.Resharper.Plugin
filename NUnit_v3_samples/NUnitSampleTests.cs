@@ -6,6 +6,14 @@ namespace NUnit_v3_samples
     public class NUnitSampleTests
     {
         [Test]
+        public void AssertAreEqual()
+        {
+            int expected = 3;
+            int actual = 2 + 1;
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
         public void AssertIsNullOrEmpty()
         {
             string actual = null;
