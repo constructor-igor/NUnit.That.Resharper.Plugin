@@ -15,8 +15,18 @@ namespace NUnit_v2_samples
         [Test]
         public void AssertIsNullOrEmpty()
         {
+            const string CUSTOM_MESSAGE = "testing of 3 parameters";
             string actual = null;
             Assert.IsNullOrEmpty(actual);
+            Assert.IsNullOrEmpty(actual, "error message");
+            Assert.IsNullOrEmpty(actual, "custom message: {0}.", CUSTOM_MESSAGE);
+        }
+
+        [Test]
+        [Repeat(10)]
+        public void RepeatTest(int s)
+        {
+            Assert.Pass("testing attribute 'Repeat' ");
         }
     }
 }
