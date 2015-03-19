@@ -68,7 +68,8 @@ namespace NUnit.That.Resharper_v8.Plugin
         public bool IsAvailable(IUserDataHolder cache)
         {
             IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
-            bool expectedExceptionDefined = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedExceptionAttribute") != null;
+            //bool expectedExceptionDefined = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedExceptionAttribute") != null;
+            bool expectedExceptionDefined = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedException") != null;
             var statement = m_provider.GetSelectedElement<IStatement>(false, false);
             bool statementSelected = statement != null;
             return expectedExceptionDefined && statementSelected;

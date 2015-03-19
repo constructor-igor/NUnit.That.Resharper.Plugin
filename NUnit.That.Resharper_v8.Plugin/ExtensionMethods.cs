@@ -16,6 +16,9 @@ namespace NUnit.That.Resharper_v8.Plugin
                 var valid = a.IsValid();
                 if (!valid)
                     return false;
+
+                return a.Name.QualifiedName == attributeFQN;
+
                 var resolved = a.Name.Reference.Resolve();
                 if (resolved.IsValid())
                 {
