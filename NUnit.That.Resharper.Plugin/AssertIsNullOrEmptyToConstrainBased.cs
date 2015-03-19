@@ -8,7 +8,7 @@ using JetBrains.ReSharper.Intentions.Extensibility.Menu;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.TextControl;
 
-namespace NUnit.That.Resharper.Plugin
+namespace NUnit.That.Resharper_v8.Plugin
 {
     [ContextAction(Group = "C#",
         Name = "Replace old-style Assert methods with constraint-based syntax.",
@@ -30,17 +30,10 @@ namespace NUnit.That.Resharper.Plugin
             {
                 IList<ICSharpArgument> args = expression.Arguments;
 
-                //                var sb = new StringBuilder("Assert.That(");
-                //                sb.Append(args[1].GetText());
-                //                sb.Append(", Is.EqualTo(");
-                //                sb.Append(args[0].GetText());
-                //                sb.Append("))");
-
                 // now replace everything
                 const string NEW_EXPRESSION_FORMAT = "Assert.That($0, Is.Null.Or.Empty)";
                 object[] newExpressionArgs = { args[0].GetText() };
 
-                //ICSharpExpression newExp = m_provider.ElementFactory.CreateExpression(sb.ToString(), new object[] { });
                 ICSharpExpression newExp = m_provider.ElementFactory.CreateExpression(NEW_EXPRESSION_FORMAT, newExpressionArgs);
                 expression.ReplaceBy(newExp);
             }
