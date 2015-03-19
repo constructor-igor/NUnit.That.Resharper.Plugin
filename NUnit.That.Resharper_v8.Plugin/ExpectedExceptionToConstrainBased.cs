@@ -69,7 +69,9 @@ namespace NUnit.That.Resharper_v8.Plugin
         {
             IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
             bool expectedExceptionDefined = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedExceptionAttribute") != null;
-            return expectedExceptionDefined;
+            var statement = m_provider.GetSelectedElement<IStatement>(false, false);
+            bool statementSelected = statement != null;
+            return expectedExceptionDefined && statementSelected;
         }
         #endregion
     }
