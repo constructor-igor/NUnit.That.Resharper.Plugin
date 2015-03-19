@@ -25,7 +25,7 @@ namespace NUnit_v2_samples
 
         [Test]
         [Repeat(10)]
-        public void RepeatTest(int s)
+        public void RepeatTest()
         {
             Assert.Pass("testing attribute 'Repeat' ");
         }
