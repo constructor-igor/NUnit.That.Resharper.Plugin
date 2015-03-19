@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0F6DBC
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestsProject", "TestsProject", "{7EA04EC3-EC9E-44B0-859D-877CBAADF515}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnitSamples", "NUnitSamples", "{7EA04EC3-EC9E-44B0-859D-877CBAADF515}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit_v2_samples", "NUnit_v2_samples\NUnit_v2_samples.csproj", "{7EF7F4BE-4D5C-4539-9D94-B744A25E037E}"
 EndProject
