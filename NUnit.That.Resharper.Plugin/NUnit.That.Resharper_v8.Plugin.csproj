@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="AssertEqualsToConstrainBased.cs" />
     <Compile Include="AssertIsNullOrEmptyToConstrainBased.cs" />
+    <Compile Include="ExpectedExceptionToConstrainBased.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -26,6 +26,7 @@ namespace NUnit.That.Resharper_v8.Plugin
         {
             m_provider = provider;
         }
+
         #region BulbActionBase
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, JetBrains.Application.Progress.IProgressIndicator progress)
         {

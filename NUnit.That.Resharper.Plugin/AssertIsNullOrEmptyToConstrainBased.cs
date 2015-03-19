@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.Bulbs;
 using JetBrains.ReSharper.Feature.Services.CSharp.Bulbs;
@@ -7,6 +8,7 @@ using JetBrains.ReSharper.Intentions.Extensibility;
 using JetBrains.ReSharper.Intentions.Extensibility.Menu;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.TextControl;
+using JetBrains.Util;
 
 namespace NUnit.That.Resharper_v8.Plugin
 {
@@ -21,8 +23,9 @@ namespace NUnit.That.Resharper_v8.Plugin
         {
             m_provider = provider;
         }
+
         #region BulbActionBase
-        protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, JetBrains.Application.Progress.IProgressIndicator progress)
+        protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
         {
             var expression = m_provider.GetSelectedElement<IInvocationExpression>(false, false);
 
@@ -51,7 +54,7 @@ namespace NUnit.That.Resharper_v8.Plugin
         {
             return this.ToContextAction();
         }
-        public bool IsAvailable(JetBrains.Util.IUserDataHolder cache)
+        public bool IsAvailable(IUserDataHolder cache)
         {
             IInvocationExpression expression = m_provider.GetSelectedElement<IInvocationExpression>(false, false);
             if (expression != null && expression.InvokedExpression.GetText() == "Assert.IsNullOrEmpty")
