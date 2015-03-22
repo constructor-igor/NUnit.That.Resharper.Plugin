@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NUnit.That.Resharper_v8.Plugin</id>
-    <version>0.4.0-alpha</version>
+    <version>0.6.0-alpha</version>
     <title>NUnit.That.Resharper.Plugin</title>
     <authors>constructor</authors>
     <owners>constructor</owners>
@@ -13,10 +13,10 @@
     <copyright>Copyright 2015</copyright>
     <tags>c# nunit Assert.That ExpectedException</tags>
     <dependencies>
-      <dependency id="ReSharper" version="[8.0, 8.2]" />
+      <dependency id="ReSharper" version="[8.0, 8.3)" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\*.*" target="ReSharper\vAny\vs12.0\plugins" />
+    <file src="bin\Release\*.*" target="ReSharper\v8.2\plugins" />
   </files>
 </package>
