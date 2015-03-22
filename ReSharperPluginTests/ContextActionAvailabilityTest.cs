@@ -4,6 +4,13 @@ using NUnit.That.Resharper_v8.Plugin;
 
 namespace ReSharperPluginTests
 {
+    //
+    //  {on}    - ExpectedExceptionToConstrainBased.IsAvailable - True
+    //  {off}   - ExpectedExceptionToConstrainBased.IsAvailable - False
+    //
+    //  https://www.jetbrains.com/resharper/devguide/Plugins/Testing.html
+    //
+
     [TestFixture]
     public class ContextActionAvailabilityTest : CSharpContextActionAvailabilityTestBase<ExpectedExceptionToConstrainBased>
     {
@@ -17,8 +24,7 @@ namespace ReSharperPluginTests
             get { return "ExpectedExceptionToConstrainBased"; }
         }
 
-        [TestCase("availability01.cs")]
-        [TestCase("availability02.cs")]
+        [TestCase("availabilityAttribute.cs")]
         public void TestCases(string testSrc)
         {
             DoTestFiles(testSrc);

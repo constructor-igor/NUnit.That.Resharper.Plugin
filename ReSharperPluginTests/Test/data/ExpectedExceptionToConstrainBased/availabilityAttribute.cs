@@ -7,17 +7,17 @@ namespace NUnit_v2_samples
     public class NUnitSampleTests
     {
         [Test]
-        [ExpectedException]
-        public void TestException()
+        [NUnit.Framework.ExpectedException]
+        public void Test1Exception()
         {
             foo1();
-            foo2();
+            {on}foo2();
             foo1();
         }
 
         void foo1()
         {
-			{off}
+            {off}
         }
         void foo2()
         {
