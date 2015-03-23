@@ -31,7 +31,7 @@ namespace NUnit_v2_samples
         }
 
         [Test]
-        [ExpectedException]
+        [NUnit.Framework.ExpectedException]
         public void TestException()
         {
             foo1();
