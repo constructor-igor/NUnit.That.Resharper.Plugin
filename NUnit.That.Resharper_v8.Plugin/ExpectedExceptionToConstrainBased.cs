@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
@@ -54,11 +53,6 @@ namespace NUnit.That.Resharper_v8.Plugin
                     foundAttribute = methodDeclaration.GetAttributeExact(m_attributesList);
                     if (foundAttribute != null)
                     {
-                        TreeNodeCollection<ICSharpExpression> exceptionArgs = foundAttribute.ConstructorArgumentExpressions;
-                        foreach (ICSharpExpression arg in exceptionArgs)
-                        {
-                            Trace.WriteLine(arg);
-                        }
                         foreach (ICSharpArgument argument in foundAttribute.Arguments)
                         {
                             IExpressionType exprType = argument.GetExpressionType();
@@ -74,8 +68,8 @@ namespace NUnit.That.Resharper_v8.Plugin
                 statement.GetText(statementText);
                 statementText.Remove(statementText.Length - 1, 1);      // TODO remove last ';'
 
-                string newExpressionFormat = null;
-                object[] newStatementExpression = null;
+                string newExpressionFormat;
+                object[] newStatementExpression;
                 if (expectedExceptionType == null)
                 {
                     //const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
