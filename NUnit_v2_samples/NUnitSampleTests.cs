@@ -38,10 +38,26 @@ namespace NUnit_v2_samples
             foo2();
             foo1();
         }
+        [Test, ExpectedException]
+        public void TestAndShortExpectedException()
+        {
+            foo1();
+            foo2();
+            foo1();
+        }
 
         [Test]
         [NUnit.Framework.ExpectedException]
         public void TestFullExpectedException()
+        {
+            foo1();
+            foo2();
+            foo1();
+        }
+
+        [Test]
+        [NUnit.Framework.ExpectedExceptionAttribute]
+        public void TestFullExpectedExceptionAttribute()
         {
             foo1();
             foo2();

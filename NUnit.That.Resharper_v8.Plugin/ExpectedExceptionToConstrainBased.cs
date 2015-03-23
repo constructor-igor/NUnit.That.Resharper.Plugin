@@ -23,6 +23,15 @@ namespace NUnit.That.Resharper_v8.Plugin
     public class ExpectedExceptionToConstrainBased : BulbActionBase, IContextAction
     {
         private readonly ICSharpContextActionDataProvider m_provider;
+        private readonly List<string> m_attributesList = new List<string>
+        {
+            "ExpectedException", 
+            "ExpectedExceptionAttribute", 
+            "Framework.ExpectedException", 
+            "Framework.ExpectedExceptionAttribute",
+            "NUnit.Framework.ExpectedException", 
+            "NUnit.Framework.ExpectedExceptionAttribute"
+        }; 
         public ExpectedExceptionToConstrainBased(ICSharpContextActionDataProvider provider)
         {
             m_provider = provider;
@@ -46,7 +55,7 @@ namespace NUnit.That.Resharper_v8.Plugin
                 IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
                 if (methodDeclaration != null)
                 {
-                    IAttribute foundAttribute = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedExceptionAttribute");
+                    IAttribute foundAttribute = methodDeclaration.GetAttributeExact(m_attributesList);
                     if (foundAttribute != null)
                         methodDeclaration.RemoveAttribute(foundAttribute);
                 }
@@ -69,7 +78,7 @@ namespace NUnit.That.Resharper_v8.Plugin
         {
             IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
             //bool expectedExceptionDefined = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedExceptionAttribute") != null;
-            bool expectedExceptionDefined = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedException") != null;
+            bool expectedExceptionDefined = methodDeclaration.GetAttributeExact(m_attributesList) != null;
             var statement = m_provider.GetSelectedElement<IStatement>(false, false);
             bool statementSelected = statement != null;
             return expectedExceptionDefined && statementSelected;
