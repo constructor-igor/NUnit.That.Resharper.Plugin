@@ -31,8 +31,17 @@ namespace NUnit_v2_samples
         }
 
         [Test]
+        [ExpectedException]
+        public void TestShortExpectedException()
+        {
+            foo1();
+            foo2();
+            foo1();
+        }
+
+        [Test]
         [NUnit.Framework.ExpectedException]
-        public void TestException()
+        public void TestFullExpectedException()
         {
             foo1();
             foo2();
