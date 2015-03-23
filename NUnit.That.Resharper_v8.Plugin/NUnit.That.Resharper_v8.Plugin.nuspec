@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NUnit.That.Resharper_v8.Plugin</id>
-    <version>0.7.0.0</version>
+    <version>0.7.0.2-alpha</version>
     <title>NUnit.That.Resharper.Plugin</title>
     <authors>constructor</authors>
     <owners>constructor</owners>
@@ -18,5 +18,6 @@
   </metadata>
   <files>
     <file src="bin\Release\*.*" target="ReSharper\v8.2\plugins" />
+	<file src="annotations\**\*.*" target="ReSharper\vAny\annotations\" />
   </files>
 </package>
