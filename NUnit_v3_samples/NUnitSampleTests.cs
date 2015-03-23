@@ -25,7 +25,23 @@ namespace NUnit_v3_samples
         public void TestException()
         {
             foo1();
-            Assert.That(foo2, Throws.InstanceOf<Exception>());
+            Assert.That(foo2, Throws.Exception);
+            foo1();
+        }
+        [Test]
+        public void TestConcreteException()
+        {
+            foo1();
+            Assert.That(foo2, Throws.TypeOf<NotImplementedException>());
+            Assert.That(foo2, Throws.TypeOf(typeof(NotImplementedException)));
+            foo1();
+        }
+        [Test]
+        public void TestConcreteByGeneralException()
+        {
+            foo1();
+            Assert.That(foo2, Throws.InstanceOf(typeof(Exception)));
+            Assert.Throws<AssertionException>(() => Assert.That(foo2, Throws.TypeOf(typeof (Exception))));
             foo1();
         }
 

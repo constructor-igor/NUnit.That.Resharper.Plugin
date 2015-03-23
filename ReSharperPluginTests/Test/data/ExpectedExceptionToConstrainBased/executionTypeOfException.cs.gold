@@ -1,0 +1,25 @@
+﻿using System;
+using NUnit.Framework;
+
+namespace NUnit_v2_samples
+{
+    [TestFixture]
+    public class NUnitSampleTypeOfExceptionTests
+    {
+        [Test]
+        public void Test1Exception()
+        {
+            foo1();
+            {caret}Assert.That(() => foo2(), Throws.TypeOf(typeof (NotImplementedException)));
+            foo1();
+        }
+
+        void foo1()
+        {
+        }
+        void foo2()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

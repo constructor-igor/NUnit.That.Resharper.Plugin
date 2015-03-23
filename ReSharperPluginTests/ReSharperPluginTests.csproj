@@ -53,8 +53,12 @@
     <Compile Include="ContextActionAvailabilityTest.cs" />
     <Compile Include="ContextActionExecutionTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Test\data\ExpectedExceptionToConstrainBased\executionAttribute.cs" />
+    <None Include="Test\data\ExpectedExceptionToConstrainBased\executionAttribute.cs.gold" />
+    <None Include="Test\data\ExpectedExceptionToConstrainBased\executionTypeOfException.cs" />
     <None Include="Test\data\ExpectedExceptionToConstrainBased\availabilityTypeOfException.cs" />
     <None Include="Test\data\ExpectedExceptionToConstrainBased\availabilityAttribute.cs" />
+    <None Include="Test\data\ExpectedExceptionToConstrainBased\executionTypeOfException.cs.gold" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

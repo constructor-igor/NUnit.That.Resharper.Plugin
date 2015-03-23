@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
@@ -8,6 +9,7 @@ using JetBrains.ReSharper.Feature.Services.CSharp.Bulbs;
 using JetBrains.ReSharper.Feature.Services.LinqTools;
 using JetBrains.ReSharper.Intentions.Extensibility;
 using JetBrains.ReSharper.Intentions.Extensibility.Menu;
+using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.TextControl;
@@ -43,21 +45,55 @@ namespace NUnit.That.Resharper_v8.Plugin
             var statement = m_provider.GetSelectedElement<IStatement>(false, false);
             if (statement != null)
             {
-                StringBuilder statementText = new StringBuilder();
-                statement.GetText(statementText);
-                statementText.Remove(statementText.Length - 1, 1);      // TODO remove last ';'
-
-                const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
-                object[] newStatementExpression = { statementText.ToString() };
-                ICSharpStatement newStatement = m_provider.ElementFactory.CreateStatement(NEW_STATEMENT_FORMAT, newStatementExpression);
-                statement.ReplaceBy(newStatement);
+                IAttribute foundAttribute = null;
+                string expectedExceptionType = null;
 
                 IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
                 if (methodDeclaration != null)
                 {
-                    IAttribute foundAttribute = methodDeclaration.GetAttributeExact(m_attributesList);
+                    foundAttribute = methodDeclaration.GetAttributeExact(m_attributesList);
                     if (foundAttribute != null)
-                        methodDeclaration.RemoveAttribute(foundAttribute);
+                    {
+                        TreeNodeCollection<ICSharpExpression> exceptionArgs = foundAttribute.ConstructorArgumentExpressions;
+                        foreach (ICSharpExpression arg in exceptionArgs)
+                        {
+                            Trace.WriteLine(arg);
+                        }
+                        foreach (ICSharpArgument argument in foundAttribute.Arguments)
+                        {
+                            IExpressionType exprType = argument.GetExpressionType();
+                            if (exprType.ToString() == "System.Type")
+                            {
+                                expectedExceptionType = argument.Value.GetText();
+                            }
+                        }
+                    }
+                }
+
+                StringBuilder statementText = new StringBuilder();
+                statement.GetText(statementText);
+                statementText.Remove(statementText.Length - 1, 1);      // TODO remove last ';'
+
+                string newExpressionFormat = null;
+                object[] newStatementExpression = null;
+                if (expectedExceptionType == null)
+                {
+                    //const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
+                    newExpressionFormat = "Assert.That(()=>$0, Throws.Exception);";
+                    newStatementExpression = new object[] { statementText.ToString() };
+                }
+                else
+                {
+                    //Assert.That(foo2, Throws.TypeOf(typeof(NotImplementedException)));
+                    newExpressionFormat = "Assert.That(()=>$0, Throws.TypeOf($1));";
+                    newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType };
+                }
+                ICSharpStatement newStatement = m_provider.ElementFactory.CreateStatement(newExpressionFormat, newStatementExpression);
+                statement.ReplaceBy(newStatement);
+
+                if (foundAttribute != null)
+                {
+                    methodDeclaration.RemoveAttribute(foundAttribute);
                 }
             }
 

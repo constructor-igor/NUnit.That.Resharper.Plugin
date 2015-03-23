@@ -1,22 +1,28 @@
 using JetBrains.ReSharper.Intentions.CSharp.Test;
-using JetBrains.ReSharper.Intentions.Test;
 using NUnit.Framework;
 using NUnit.That.Resharper_v8.Plugin;
 
 namespace ReSharperPluginTests
 {
     [TestFixture]
-    public class ContextActionExecutionTest1 : CSharpContextActionAvailabilityTestBase<ExpectedExceptionToConstrainBased>
+    public class ContextActionExecutionTest1 : CSharpContextActionExecuteTestBase<ExpectedExceptionToConstrainBased>
     {
         protected override string ExtraPath
         {
-            get { return "ClassName"; }
+            get { return "ExpectedExceptionToConstrainBased"; }
         }
 
-        [Test, TestCase("execution01")]
-        public void Test(string testSrc)
+        protected override string RelativeTestDataPath
         {
-            DoOneTest(testSrc);
+            get { return "ExpectedExceptionToConstrainBased"; }
         }
+
+        [TestCase("executionAttribute.cs")]
+        [TestCase("executionTypeOfException.cs")]
+        public void TestCases(string testSrc)
+        {
+            DoTestFiles(testSrc);
+        }
+
     }
 }
