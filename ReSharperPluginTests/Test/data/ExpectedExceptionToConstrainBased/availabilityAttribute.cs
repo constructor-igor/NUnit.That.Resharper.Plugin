@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace NUnit_v2_samples
 {
     [TestFixture]
-    public class NUnitSampleTests
+    public class NUnitSampleAttributesTests
     {
         [Test]
         [ExpectedException]

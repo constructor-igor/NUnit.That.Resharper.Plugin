@@ -25,6 +25,7 @@ namespace ReSharperPluginTests
         }
 
         [TestCase("availabilityAttribute.cs")]
+        [TestCase("availabilityTypeOfException.cs")]
         public void TestCases(string testSrc)
         {
             DoTestFiles(testSrc);

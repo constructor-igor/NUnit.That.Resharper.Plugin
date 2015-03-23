@@ -64,6 +64,15 @@ namespace NUnit_v2_samples
             foo1();
         }
 
+        [Test]
+        [ExpectedException(typeof(NotImplementedException))]
+        public void TestExpectedExceptionWithType()
+        {
+            foo1();
+            foo2();
+            foo1();
+        }
+
         void foo1()
         {            
         }
