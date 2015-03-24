@@ -45,6 +45,12 @@ namespace NUnit_v3_samples
             foo1();
         }
 
+        [Test]
+        public void TestExpectedExceptionWithExpressions()
+        {
+            Assert.That(() => { double i = 2 + getNumber(); }, Throws.Exception);
+        }
+
         void foo1()
         {
         }
@@ -53,5 +59,9 @@ namespace NUnit_v3_samples
             throw new NotImplementedException();
         }
 
+        double getNumber()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

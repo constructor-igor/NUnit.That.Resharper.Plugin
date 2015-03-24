@@ -66,20 +66,20 @@ namespace NUnit.That.Resharper_v8.Plugin
 
                 StringBuilder statementText = new StringBuilder();
                 statement.GetText(statementText);
-                statementText.Remove(statementText.Length - 1, 1);      // TODO remove last ';'
+                //statementText.Remove(statementText.Length - 1, 1);      // TODO remove last ';'
 
                 string newExpressionFormat;
                 object[] newStatementExpression;
                 if (expectedExceptionType == null)
                 {
                     //const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
-                    newExpressionFormat = "Assert.That(()=>$0, Throws.Exception);";
+                    newExpressionFormat = "Assert.That(()=>{$0}, Throws.Exception);";
                     newStatementExpression = new object[] { statementText.ToString() };
                 }
                 else
                 {
                     //Assert.That(foo2, Throws.TypeOf(typeof(NotImplementedException)));
-                    newExpressionFormat = "Assert.That(()=>$0, Throws.TypeOf($1));";
+                    newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1));";
                     newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType };
                 }
                 ICSharpStatement newStatement = m_provider.ElementFactory.CreateStatement(newExpressionFormat, newStatementExpression);

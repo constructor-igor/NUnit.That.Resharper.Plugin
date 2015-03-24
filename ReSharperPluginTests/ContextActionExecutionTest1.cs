@@ -19,6 +19,7 @@ namespace ReSharperPluginTests
 
         [TestCase("executionAttribute.cs")]
         [TestCase("executionTypeOfException.cs")]
+        [TestCase("executionExpressionCase.cs")]
         public void TestCases(string testSrc)
         {
             DoTestFiles(testSrc);

@@ -10,7 +10,7 @@ namespace NUnit_v2_samples
         public void Test1Exception()
         {
             foo1();
-            {caret}Assert.That(() => foo2(), Throws.Exception);
+            {caret}Assert.That(() => { foo2(); }, Throws.Exception);
             foo1();
         }
 

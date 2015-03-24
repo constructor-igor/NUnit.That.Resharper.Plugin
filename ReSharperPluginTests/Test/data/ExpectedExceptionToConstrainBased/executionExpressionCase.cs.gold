@@ -1,0 +1,20 @@
+using System;
+using NUnit.Framework;
+
+namespace NUnit_v2_samples
+{
+    [TestFixture]
+    public class NUnitSampleTypeOfExceptionTests
+    {
+        [Test]
+        public void TestExpectedExceptionWithExpressions()
+        {
+          Assert.That(() => { double i = {caret}2 + getNumber(); }, Throws.Exception);
+        }
+
+      double getNumber()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

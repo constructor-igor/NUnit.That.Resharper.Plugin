@@ -65,11 +65,10 @@ namespace NUnit_v2_samples
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException))]
         public void TestExpectedExceptionWithType()
         {
             foo1();
-            foo2();
+            Assert.That(() => { foo2(); }, Throws.TypeOf(typeof (NotImplementedException)));
             foo1();
         }
 //        [Test]
@@ -81,10 +80,22 @@ namespace NUnit_v2_samples
 //            foo1();
 //        }
 
+        [Test]
+        [ExpectedException]
+        public void TestExpectedExceptionWithExpressions()
+        {
+            double i = 2 + getNumber();
+        }
+
         void foo1()
         {            
         }
         void foo2()
+        {
+            throw new NotImplementedException();
+        }
+
+        double getNumber()
         {
             throw new NotImplementedException();
         }
