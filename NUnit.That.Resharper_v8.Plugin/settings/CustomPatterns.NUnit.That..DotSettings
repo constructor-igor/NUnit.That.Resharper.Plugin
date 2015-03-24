@@ -1,0 +1,25 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/IsReplacePattern/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/LanguageName/@EntryValue">CSHARP</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/ReplacePattern/@EntryValue">Assert.That($param1$, Is.Null.Or.Empty, $param2$)</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/SearchPattern/@EntryValue">Assert.IsNullOrEmpty($param1$, $param2$)</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/Severity/@EntryValue">HINT</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/CustomPatternPlaceholder/=param1/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/CustomPatternPlaceholder/=param1/Properties/=Maximal/@EntryIndexedValue">-1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/CustomPatternPlaceholder/=param1/Properties/=Minimal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/CustomPatternPlaceholder/=param1/Type/@EntryValue">ArgumentPlaceholder</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/CustomPatternPlaceholder/=param2/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/CustomPatternPlaceholder/=param2/Properties/=Maximal/@EntryIndexedValue">2</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/CustomPatternPlaceholder/=param2/Properties/=Minimal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=11231C43013059499C8AB06CFF43D9AD/CustomPatternPlaceholder/=param2/Type/@EntryValue">ArgumentPlaceholder</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/IsReplacePattern/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/LanguageName/@EntryValue">CSHARP</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/ReplacePattern/@EntryValue">Assert.That($param$, Is.Null.Or.Empty)</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/SearchPattern/@EntryValue">Assert.IsNullOrEmpty($param$)</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/Severity/@EntryValue">HINT</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/CustomPatternPlaceholder/=param/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/CustomPatternPlaceholder/=param/Properties/=Maximal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/CustomPatternPlaceholder/=param/Properties/=Minimal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=41820A69CC3684429FCDAC04973DEF75/CustomPatternPlaceholder/=param/Type/@EntryValue">ArgumentPlaceholder</s:String></wpf:ResourceDictionary>
