@@ -51,12 +51,23 @@ namespace NUnit_v3_samples
             Assert.That(() => { double i = 2 + getNumber(); }, Throws.Exception);
         }
 
+        [Test]
+        public void TestExpectedExceptionWithCustomerMessage()
+        {
+            Assert.That(() => { foo4("customer message"); },  Throws.TypeOf(typeof (NotImplementedException)).And.Message.EqualTo("customer message"));
+        }
+
+
         void foo1()
         {
         }
         void foo2()
         {
             throw new NotImplementedException();
+        }
+        void foo4(string customerExceptionMessage)
+        {
+            throw new NotImplementedException(customerExceptionMessage);
         }
 
         double getNumber()

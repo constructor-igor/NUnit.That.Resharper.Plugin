@@ -88,12 +88,23 @@ namespace NUnit_v2_samples
             double i = 2 + getNumber();
         }
 
+        [Test]
+        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "customer message")]
+        public void TestExpectedExceptionWithCustomerMessage()
+        {
+            foo4("customer message");
+        }
+
         void foo1()
         {            
         }
         void foo2()
         {
             throw new NotImplementedException();
+        }
+        void foo4(string customerExceptionMessage)
+        {
+            throw new NotImplementedException(customerExceptionMessage);
         }
 
         double getNumber()
