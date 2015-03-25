@@ -76,7 +76,7 @@ namespace NUnit_v2_samples
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException))]
+        [ExpectedException(typeof(NotImplementedException), ExpectedException = typeof(NotImplementedException))]
         public void TestExpectedExceptionWithType()
         {
             foo1();
@@ -100,10 +100,9 @@ namespace NUnit_v2_samples
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "customer message")]
         public void TestExpectedExceptionWithCustomerMessage()
         {
-            foo4("customer message");
+            Assert.That(() => foo4("customer message"), Throws.TypeOf(typeof (NotImplementedException)).And.Message.EqualTo("customer message"));
         }
 
         void foo1()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
@@ -46,6 +47,7 @@ namespace NUnit.That.Resharper_v8.Plugin
             {
                 IAttribute foundAttribute = null;
                 string expectedExceptionType = null;
+                string expectedExceptionMessage = null;
 
                 IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
                 if (methodDeclaration != null)
@@ -59,6 +61,16 @@ namespace NUnit.That.Resharper_v8.Plugin
                             if (exprType.ToString() == "System.Type")
                             {
                                 expectedExceptionType = argument.Value.GetText();
+                            }
+                        }
+                        foreach (IPropertyAssignment propertyAssignment in foundAttribute.PropertyAssignments)
+                        {
+                            Trace.WriteLine("p:" + propertyAssignment.GetText());
+                            switch (propertyAssignment.PropertyNameIdentifier.GetText())
+                            {
+                                case "ExpectedMessage":
+                                    expectedExceptionMessage = propertyAssignment.Source.GetText();
+                                    break;
                             }
                         }
                     }
@@ -79,8 +91,16 @@ namespace NUnit.That.Resharper_v8.Plugin
                 else
                 {
                     //Assert.That(foo2, Throws.TypeOf(typeof(NotImplementedException)));
-                    newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1));";
-                    newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType };
+                    if (expectedExceptionMessage == null)
+                    {
+                        newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1));";
+                        newStatementExpression = new object[] {statementText.ToString(), expectedExceptionType};
+                    }
+                    else
+                    {
+                        newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1).And.Message.EqualTo($2));";
+                        newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType, expectedExceptionMessage };
+                    }
                 }
                 ICSharpStatement newStatement = m_provider.ElementFactory.CreateStatement(newExpressionFormat, newStatementExpression);
                 statement.ReplaceBy(newStatement);
