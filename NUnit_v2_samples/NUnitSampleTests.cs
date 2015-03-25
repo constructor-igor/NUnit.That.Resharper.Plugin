@@ -21,6 +21,17 @@ namespace NUnit_v2_samples
             Assert.IsNullOrEmpty(actual);
             Assert.IsNullOrEmpty(actual, "error message");
             Assert.IsNullOrEmpty(actual, "custom message: {0}.", CUSTOM_MESSAGE);
+            Assert.IsNullOrEmpty(actual, "custom message: {0} and {1}.", CUSTOM_MESSAGE, 10);
+        }
+        [Test]
+        public void AssertIsNotNullOrEmpty()
+        {
+            const string CUSTOM_MESSAGE = "testing of 3 parameters";
+            const string actual = "not null or empty";
+            Assert.IsNotNullOrEmpty(actual);
+            Assert.IsNotNullOrEmpty(actual, "error message");
+            Assert.IsNotNullOrEmpty(actual, "custom message: {0}.", CUSTOM_MESSAGE);
+            Assert.IsNotNullOrEmpty(actual, "custom message: {0} and {1}.", CUSTOM_MESSAGE, 10);
         }
 
         [Test]

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NUnit.That.Resharper_v8.Plugin</id>
-    <version>0.7.0.4-alpha</version>
+    <version>0.7.0.7-alpha</version>
     <title>NUnit.That.Resharper.Plugin</title>
     <authors>constructor</authors>
     <owners>constructor</owners>

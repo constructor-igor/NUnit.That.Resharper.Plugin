@@ -12,6 +12,7 @@ using JetBrains.Util;
 
 namespace NUnit.That.Resharper_v8.Plugin
 {
+/*
     [ContextAction(Group = "C#",
         Name = "Replace old-style Assert methods with constraint-based syntax.",
         Description = "Replace old-style Assert methods with constraint-based syntax; e.g., changes Assert.IsNullOrEmpty(MyClass.MyMethod()) to Assert.That(MyClass.MyMethod(), Is.Null.Or.Empty)",
@@ -68,4 +69,5 @@ namespace NUnit.That.Resharper_v8.Plugin
         }
         #endregion
     }
+ */ 
 }

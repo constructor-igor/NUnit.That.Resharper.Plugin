@@ -15,6 +15,7 @@ namespace NUnit.That.Resharper_v8.Plugin
      * http://www.nuget.org/packages/JetBrains.ReSharper.SDK/8.2.1158
      * */
 
+/*
     [ContextAction(Group = "C#",
         Name = "Replace old-style Assert methods with constraint-based syntax.",
         Description = "Replace old-style Assert methods with constraint-based syntax; e.g., changes Assert.Equal(10, MyClass.MyMethod()) to Assert.That(MyClass.MyMethod(), Is.EqualTo(10))",
@@ -71,4 +72,5 @@ namespace NUnit.That.Resharper_v8.Plugin
         }
         #endregion
     }
+ */ 
 }
