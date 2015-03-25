@@ -17,8 +17,22 @@ namespace NUnit_v3_samples
         [Test]
         public void AssertIsNullOrEmpty()
         {
+            const string CUSTOM_MESSAGE = "testing of 3 parameters";
             string actual = null;
             Assert.That(actual, Is.Null.Or.Empty);          // was in nunit v2. Assert.IsNullOrEmpty(actual);
+            Assert.That(actual, Is.Null.Or.Empty, "error message");
+            Assert.That(actual, Is.Null.Or.Empty, "custom message: {0}.", CUSTOM_MESSAGE);
+            Assert.That(actual, Is.Null.Or.Empty, "custom message: {0} and {1}.", CUSTOM_MESSAGE, 10);
+        }
+        [Test]
+        public void AssertIsNotNullOrEmpty()
+        {
+            const string CUSTOM_MESSAGE = "testing of 3 parameters";
+            const string actual = "not null or empty";
+            Assert.That(actual, Is.Not.Null.Or.Empty);
+            Assert.That(actual, Is.Not.Null.Or.Empty, "error message");
+            Assert.That(actual, Is.Not.Null.Or.Empty, "custom message: {0}.", CUSTOM_MESSAGE);
+            Assert.That(actual, Is.Not.Null.Or.Empty, "custom message: {0} and {1}.", CUSTOM_MESSAGE, 10);
         }
 
         [Test]
