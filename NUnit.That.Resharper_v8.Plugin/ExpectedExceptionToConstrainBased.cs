@@ -46,6 +46,7 @@ namespace NUnit.That.Resharper_v8.Plugin
             if (statement != null)
             {
                 IAttribute foundAttribute = null;
+                string expectedExceptionTypeOfExpr = null;
                 string expectedExceptionType = null;
                 string expectedExceptionMessage = null;
 
@@ -60,7 +61,8 @@ namespace NUnit.That.Resharper_v8.Plugin
                             IExpressionType exprType = argument.GetExpressionType();
                             if (exprType.ToString() == "System.Type")
                             {
-                                expectedExceptionType = argument.Value.GetText();
+                                expectedExceptionTypeOfExpr = argument.Value.GetText();
+                                expectedExceptionType = argument.Value.FirstChild.NextSibling.NextSibling.GetText();
                             }
                         }
                         foreach (IPropertyAssignment propertyAssignment in foundAttribute.PropertyAssignments)
@@ -82,7 +84,7 @@ namespace NUnit.That.Resharper_v8.Plugin
 
                 string newExpressionFormat;
                 object[] newStatementExpression;
-                if (expectedExceptionType == null)
+                if (expectedExceptionTypeOfExpr == null)
                 {
                     //const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
                     newExpressionFormat = "Assert.That(()=>{$0}, Throws.Exception);";
@@ -93,12 +95,18 @@ namespace NUnit.That.Resharper_v8.Plugin
                     //Assert.That(foo2, Throws.TypeOf(typeof(NotImplementedException)));
                     if (expectedExceptionMessage == null)
                     {
-                        newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1));";
-                        newStatementExpression = new object[] {statementText.ToString(), expectedExceptionType};
+                        //newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1));";
+                        //newStatementExpression = new object[] { statementText.ToString(), expectedExceptionTypeOfExpr };
+
+                        newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf<$1>());";
+                        newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType };
                     }
                     else
                     {
-                        newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1).And.Message.EqualTo($2));";
+                        //newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1).And.Message.EqualTo($2));";
+                        //newStatementExpression = new object[] { statementText.ToString(), expectedExceptionTypeOfExpr, expectedExceptionMessage };
+
+                        newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf<$1>().And.Message.EqualTo($2));";
                         newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType, expectedExceptionMessage };
                     }
                 }
