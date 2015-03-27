@@ -9,6 +9,7 @@ NUnit.That.Resharper.Plugin in [Resharper gallery](https://resharper-plugins.jet
 
  - Attribute **ExpectedException** to Assert.That construction
 
+
  - Assert.**IsNullOrEmpty**(expression) to Assert.That(expression, Is.Null.Or.Empty)
  - Assert.**IsNotNullOrEmpty**(expression) to Assert.That(expression, Is.Not.Null.Or.Empty)
 
