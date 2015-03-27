@@ -1,10 +1,15 @@
 # NUnit.That.Resharper.Plugin
-Resharper plugin for NUnit support
+[[Resharper](https://www.jetbrains.com/resharper/)] plugin for transfer to Assert.That (include NUnit v3 support).
 
-Convert nunit v3 not supported constructions (Assert, attributes) to relevant v3 style.
+NUnit.That.Resharper.Plugin helps to convert Assert methods and nunit attributes to Assert.That method.
 
-List:
- - Assert.IsNullOrEmpty(expession) to Assert.That(experession, Is.Null.Or.Empty)
- - [next] Assert.IsNotNullOrEmpty(expession) to Assert.That(experession, Is.Not.Null.Or.Empty)
+[![Resharper gallery](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v8.Plugin/)](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v8.Plugin/)
+
+## Short List:
 
  - Attribute ExpectedException to Assert.That construction
+
+ - Assert.IsNullOrEmpty(expression) to Assert.That(expression, Is.Null.Or.Empty)
+ - [next] Assert.IsNotNullOrEmpty(expression) to Assert.That(expression, Is.Not.Null.Or.Empty)
+
+## Samples:
