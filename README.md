@@ -7,10 +7,10 @@ NUnit.That.Resharper.Plugin in [Resharper gallery](https://resharper-plugins.jet
 
 ### Short List:
 
-#### Attributes
+###### Attributes
 - Attribute **ExpectedException** to Assert.That(code, Throws.TypeOf<Exception>()) construction
 
-#### Assert methods
+###### Assert methods
 - Assert.**IsNullOrEmpty**(expression) to Assert.That(expression, Is.Null.Or.Empty)
 - Assert.**IsNotNullOrEmpty**(expression) to Assert.That(expression, Is.Not.Null.Or.Empty)
 
