@@ -1,9 +1,9 @@
 # NUnit.That.Resharper.Plugin
-[Resharper(https://www.jetbrains.com/resharper/)] plugin for transfer to Assert.That (include NUnit v3 support).
+[Resharper](https://www.jetbrains.com/resharper/) plugin for transfer to Assert.That (include NUnit v3 support).
 
 NUnit.That.Resharper.Plugin helps to convert Assert methods and nunit attributes to Assert.That method.
 
-[Resharper gallery(https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v8.Plugin/)]
+[Resharper gallery](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v8.Plugin/)
 
 ## Short List:
 
