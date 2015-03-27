@@ -3,13 +3,13 @@
 
 NUnit.That.Resharper.Plugin helps to convert Assert methods and nunit attributes to Assert.That method.
 
-[Resharper gallery](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v8.Plugin/)
+NUnit.That.Resharper.Plugin in [Resharper gallery](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v8.Plugin/)
 
 ## Short List:
 
- - Attribute ExpectedException to Assert.That construction
+ - Attribute **ExpectedException** to Assert.That construction
 
- - Assert.IsNullOrEmpty(expression) to Assert.That(expression, Is.Null.Or.Empty)
- - [next] Assert.IsNotNullOrEmpty(expression) to Assert.That(expression, Is.Not.Null.Or.Empty)
+ - Assert.**IsNullOrEmpty**(expression) to Assert.That(expression, Is.Null.Or.Empty)
+ - Assert.**IsNotNullOrEmpty**(expression) to Assert.That(expression, Is.Not.Null.Or.Empty)
 
 ## Samples:
