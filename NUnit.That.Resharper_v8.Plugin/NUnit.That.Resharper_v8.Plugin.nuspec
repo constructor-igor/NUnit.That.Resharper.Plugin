@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>NUnit.That.Resharper_v8.Plugin</id>
-    <version>0.7.0.9-alpha</version>
+    <version>0.7.1.1</version>
     <title>NUnit.That.Resharper.Plugin</title>
     <authors>constructor</authors>
     <owners>constructor</owners>
     <projectUrl>https://github.com/constructor-igor/NUnit.That.Resharper.Plugin</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Resharper v8 plugin to transfer nunit attributes and methods to Assert.That</description>
-    <releaseNotes>Transfer to NUnit constraint-based Assert mode (Assert.That)</releaseNotes>
+    <releaseNotes>Transfer to NUnit constraint-based Assert model (Assert.That)</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>c# nunit Assert.That ExpectedException</tags>
     <dependencies>
