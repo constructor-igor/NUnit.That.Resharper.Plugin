@@ -80,6 +80,6 @@ to
         [Test]
         public void TestExpectedExceptionWithCustomerMessage()
         {
-            Assert.That(() => { foo4("customer message"); }, Throws.TypeOf(typeof (NotImplementedException)).And.Message.EqualTo("customer message"));
+            Assert.That(() => { foo4("customer message"); }, Throws.TypeOf<NotImplementedException>().And.Message.EqualTo("customer message"));
         }
 ```
