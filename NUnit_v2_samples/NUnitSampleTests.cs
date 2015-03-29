@@ -107,6 +107,15 @@ namespace NUnit_v2_samples
         }
 
         [Test]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestExpectedException()
+        {
+            foo1();
+            foo4();
+            foo1();
+        }
+
+        [Test]
         [ExpectedException(typeof(ArgumentException), ExpectedException = typeof(NotImplementedException))]
         public void TestExpectedExceptionWithExpectedExceptionProperty()
         {
@@ -121,6 +130,10 @@ namespace NUnit_v2_samples
         void foo2()
         {
             throw new NotImplementedException();
+        }
+        void foo4()
+        {
+            throw new ArgumentException();
         }
         void foo4(string customerExceptionMessage)
         {
