@@ -85,3 +85,10 @@ to Assert.That(..., Throws.TypeOf().And.Message.EqualTo(expected message));
             Assert.That(() => { foo4("customer message"); }, Throws.TypeOf<NotImplementedException>().And.Message.EqualTo("customer message"));
         }
 ```
+
+###### Assert.Is... methods
+
+| Assert.Is...  | Assert.That |
+| ------------- | ------------- |
+| ```Assert.IsNullOrEmpty(actual);``` | ```Assert.That(actual, Is.Null.Or.Empty);``` |
+| ```Assert.IsNotNullOrEmpty(actual);```  | ```Assert.That(actual, Is.Not.Null.Or.Empty);``` |
