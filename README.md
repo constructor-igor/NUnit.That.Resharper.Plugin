@@ -5,6 +5,15 @@ NUnit.That.Resharper.Plugin helps to convert Assert methods and nunit attributes
 
 NUnit.That.Resharper.Plugin in [Resharper gallery](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v8.Plugin/)
 
+### Intro
+Attribute "ExpectedException"
+
+![alt tag](screens/AttributeExpectedException.png)
+
+can be converted to relevant Assert.That
+
+![alt tag](screens/AttributeConvertedToAssertThat.png)
+
 ### Short List:
 
 ###### Attributes
