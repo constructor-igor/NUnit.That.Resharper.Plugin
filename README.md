@@ -27,6 +27,7 @@ can be converted to relevant Assert.That
 
 ###### Attribute ExpectedException
 
+Attribute ExpectedException
 ```c#
         [Test, ExpectedException]
         public void TestAndShortExpectedException()
@@ -36,7 +37,7 @@ can be converted to relevant Assert.That
             foo1();
         }
 ```
-to
+to Assert.That(..., Throws.Exception)
 ```c#
         [Test]
         public void TestAndShortExpectedException()
@@ -46,6 +47,7 @@ to
             foo1();
         }
 ```
+Atribute ExpectedException with concrete exception type
 ```c#
         [Test]
         [ExpectedException(typeof(ArgumentException))]
@@ -56,7 +58,7 @@ to
             foo1();
         }
 ```
-to
+to Assert.That(..., Throws.TypeOf())
 ```c#
         [Test]
         public void TestExpectedException()
@@ -66,7 +68,7 @@ to
             foo1();
         }
 ```
-
+Atribute ExpectedException with concrete exception type and expected message
 ```c#
         [Test]
         [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "customer message")]
@@ -75,7 +77,7 @@ to
             foo4("customer message");
         }
 ```
-to 
+to Assert.That(..., Throws.TypeOf().And.Message.EqualTo(expected message));
 ```c#
         [Test]
         public void TestExpectedExceptionWithCustomerMessage()
