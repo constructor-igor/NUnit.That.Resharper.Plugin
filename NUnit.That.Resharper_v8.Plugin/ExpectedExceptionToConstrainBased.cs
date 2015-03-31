@@ -73,6 +73,10 @@ namespace NUnit.That.Resharper_v8.Plugin
                                 case "ExpectedMessage":
                                     expectedExceptionMessage = propertyAssignment.Source.GetText();
                                     break;
+                                case "ExpectedException":
+                                    expectedExceptionTypeOfExpr = propertyAssignment.Source.GetText();
+                                    expectedExceptionType = propertyAssignment.Source.FirstChild.NextSibling.NextSibling.GetText();
+                                    break;
                             }
                         }
                     }
