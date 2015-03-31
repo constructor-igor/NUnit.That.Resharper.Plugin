@@ -100,8 +100,14 @@ namespace NUnit_v2_samples
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "customer message", MatchType = MessageMatch.Contains)]
+        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "my customer message")]
         public void TestExpectedExceptionWithCustomerMessage()
+        {
+            foo4("my customer message");
+        }
+        [Test]
+        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "customer message", MatchType = MessageMatch.Contains)]
+        public void TestExpectedExceptionWithCustomerMessageAndMatchType()
         {
             foo4("my customer message");
         }

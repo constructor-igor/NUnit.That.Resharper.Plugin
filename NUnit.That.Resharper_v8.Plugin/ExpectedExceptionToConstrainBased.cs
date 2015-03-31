@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
+using JetBrains.ReSharper.Feature.Services.ArchitectureModel.Graph;
 using JetBrains.ReSharper.Feature.Services.Bulbs;
 using JetBrains.ReSharper.Feature.Services.CSharp.Bulbs;
 using JetBrains.ReSharper.Feature.Services.LinqTools;
@@ -80,16 +81,25 @@ namespace NUnit.That.Resharper_v8.Plugin
                     }
                 }
 
+                bool declarationStatement = statement.NodeType == JetBrains.ReSharper.Psi.CSharp.Impl.Tree.ElementType.DECLARATION_STATEMENT;
+                bool lambda = !declarationStatement;
+
                 StringBuilder statementText = new StringBuilder();
                 statement.GetText(statementText);
-                //statementText.Remove(statementText.Length - 1, 1);      // TODO remove last ';'
+
+                string codeFormat = "()=>{$0}";
+                if (lambda)
+                {
+                    statementText.Remove(statementText.Length - 1, 1); // TODO remove last ';'
+                    codeFormat = "()=>$0";                    
+                }
 
                 string newExpressionFormat;
                 object[] newStatementExpression;
                 if (expectedExceptionTypeOfExpr == null)
                 {
                     //const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
-                    newExpressionFormat = "Assert.That(()=>{$0}, Throws.Exception);";
+                    newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.Exception);";
                     newStatementExpression = new object[] { statementText.ToString() };
                 }
                 else
@@ -100,7 +110,7 @@ namespace NUnit.That.Resharper_v8.Plugin
                         //newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1));";
                         //newStatementExpression = new object[] { statementText.ToString(), expectedExceptionTypeOfExpr };
 
-                        newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf<$1>());";
+                        newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.TypeOf<$1>());";
                         newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType };
                     }
                     else
@@ -108,7 +118,7 @@ namespace NUnit.That.Resharper_v8.Plugin
                         //newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1).And.Message.EqualTo($2));";
                         //newStatementExpression = new object[] { statementText.ToString(), expectedExceptionTypeOfExpr, expectedExceptionMessage };
 
-                        newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf<$1>().And.Message.EqualTo($2));";
+                        newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.TypeOf<$1>().And.Message.EqualTo($2));";
                         newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType, expectedExceptionMessage };
                     }
                 }

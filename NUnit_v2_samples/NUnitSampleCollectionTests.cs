@@ -84,5 +84,4 @@ namespace NUnit_v2_samples
             return First.GetHashCode() ^ Second.GetHashCode();
         }
     };
-
 }
