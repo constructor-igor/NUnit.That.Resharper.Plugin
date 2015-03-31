@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
@@ -67,7 +66,6 @@ namespace NUnit.That.Resharper_v8.Plugin
                         }
                         foreach (IPropertyAssignment propertyAssignment in foundAttribute.PropertyAssignments)
                         {
-                            Trace.WriteLine("p:" + propertyAssignment.GetText());
                             switch (propertyAssignment.PropertyNameIdentifier.GetText())
                             {
                                 case "ExpectedMessage":
