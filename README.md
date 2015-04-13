@@ -18,8 +18,10 @@ can be converted to relevant Assert.That
 
 ###### Attributes
 - Attribute **ExpectedException** to Assert.That(code, Throws.TypeOf<Exception>()) construction
+- Attribute **Ignore** without parameter to Ignore("")
 
 ###### Assert methods
+- Assert.**IsNotNull**(expression) to Assert.That(expression, Is.Not.Null)
 - Assert.**IsNullOrEmpty**(expression) to Assert.That(expression, Is.Null.Or.Empty)
 - Assert.**IsNotNullOrEmpty**(expression) to Assert.That(expression, Is.Not.Null.Or.Empty)
 
@@ -90,5 +92,6 @@ to Assert.That(..., Throws.TypeOf().And.Message.EqualTo(expected message));
 
 | Assert.Is...  | Assert.That |
 | ------------- | ------------- |
+| ```Assert.IsNotNull(actual);``` | ```Assert.That(actual, Is.Not.Null);``` |
 | ```Assert.IsNullOrEmpty(actual);``` | ```Assert.That(actual, Is.Null.Or.Empty);``` |
 | ```Assert.IsNotNullOrEmpty(actual);```  | ```Assert.That(actual, Is.Not.Null.Or.Empty);``` |
