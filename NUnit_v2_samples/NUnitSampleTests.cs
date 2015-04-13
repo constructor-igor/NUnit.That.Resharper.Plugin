@@ -13,6 +13,17 @@ namespace NUnit_v2_samples
             int actual = 2 + 1;
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void AssertIsNotNull()
+        {
+            const string CUSTOM_MESSAGE = "testing of 3 parameters";
+            object actual = getNotNull();
+            Assert.IsNotNull(actual);
+            Assert.IsNotNull(actual, "error message");
+            Assert.IsNotNull(actual, "custom message: {0}.", CUSTOM_MESSAGE);
+            Assert.IsNotNull(actual, "custom message: {0} and {1}.", CUSTOM_MESSAGE, 10);
+        }
         [Test]
         public void AssertIsNullOrEmpty()
         {
@@ -32,6 +43,13 @@ namespace NUnit_v2_samples
             Assert.IsNotNullOrEmpty(actual, "error message");
             Assert.IsNotNullOrEmpty(actual, "custom message: {0}.", CUSTOM_MESSAGE);
             Assert.IsNotNullOrEmpty(actual, "custom message: {0} and {1}.", CUSTOM_MESSAGE, 10);
+        }
+
+        [Test]
+        [Ignore]
+        public void IgnoreTest()
+        {
+            Assert.Fail();
         }
 
         [Test]
@@ -149,6 +167,15 @@ namespace NUnit_v2_samples
         double getNumber()
         {
             throw new NotImplementedException();
+        }
+
+        object getNull()
+        {
+            return null;
+        }
+        object getNotNull()
+        {
+            return new object();
         }
     }
 }

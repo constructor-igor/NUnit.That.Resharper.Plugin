@@ -9,16 +9,12 @@
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=0E35A245D7CB0F46A5B4C2F14E76E01D/ReplacePattern/@EntryValue">Assert.That($param$, Is.Null.Or.Empty)</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=0E35A245D7CB0F46A5B4C2F14E76E01D/SearchPattern/@EntryValue">Assert.IsNullOrEmpty($param$)</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=0E35A245D7CB0F46A5B4C2F14E76E01D/Severity/@EntryValue">HINT</s:String>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3AC30E93974C7F49ADBA5491585E7A0C/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3AC30E93974C7F49ADBA5491585E7A0C/IsReplacePattern/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3AC30E93974C7F49ADBA5491585E7A0C/LanguageName/@EntryValue">CSHARP</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3AC30E93974C7F49ADBA5491585E7A0C/ReplacePattern/@EntryValue">[Ignore("")]</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3AC30E93974C7F49ADBA5491585E7A0C/SearchPattern/@EntryValue">[Ignore]</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3AC30E93974C7F49ADBA5491585E7A0C/Severity/@EntryValue">HINT</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3E38A044E2AD204A9B73A621D7187341/@KeyIndexDefined">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3E38A044E2AD204A9B73A621D7187341/CustomPatternPlaceholder/=param1/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3E38A044E2AD204A9B73A621D7187341/CustomPatternPlaceholder/=param1/Properties/=Maximal/@EntryIndexedValue">1</s:String>
@@ -33,22 +29,32 @@
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3E38A044E2AD204A9B73A621D7187341/ReplacePattern/@EntryValue">Assert.That($param1$, Is.Not.Null.Or.Empty, $param2$)</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3E38A044E2AD204A9B73A621D7187341/SearchPattern/@EntryValue">Assert.IsNotNullOrEmpty($param1$, $param2$)</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=3E38A044E2AD204A9B73A621D7187341/Severity/@EntryValue">HINT</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/CustomPatternPlaceholder/=param1/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/CustomPatternPlaceholder/=param1/Properties/=Maximal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/CustomPatternPlaceholder/=param1/Properties/=Minimal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/CustomPatternPlaceholder/=param1/Type/@EntryValue">ArgumentPlaceholder</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/CustomPatternPlaceholder/=param2/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/CustomPatternPlaceholder/=param2/Properties/=Maximal/@EntryIndexedValue">-1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/CustomPatternPlaceholder/=param2/Properties/=Minimal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/CustomPatternPlaceholder/=param2/Type/@EntryValue">ArgumentPlaceholder</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/IsReplacePattern/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/LanguageName/@EntryValue">CSHARP</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/ReplacePattern/@EntryValue">Assert.That($param1$, Is.Not.Null, $param2$)</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/SearchPattern/@EntryValue">Assert.IsNotNull($param1$, $param2$)</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=49865044CBB0BA44BC6D8A58D3901E35/Severity/@EntryValue">HINT</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/CustomPatternPlaceholder/=param/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/CustomPatternPlaceholder/=param/Properties/=Maximal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/CustomPatternPlaceholder/=param/Properties/=Minimal/@EntryIndexedValue">1</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/CustomPatternPlaceholder/=param/Type/@EntryValue">ArgumentPlaceholder</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/IsReplacePattern/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/LanguageName/@EntryValue">CSHARP</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/ReplacePattern/@EntryValue">Assert.That($param$, Is.Not.Null)</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/SearchPattern/@EntryValue">Assert.IsNotNull($param$)</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=660010095DC9EC488759D7EEBEA5BFF9/Severity/@EntryValue">HINT</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=ABFAF84E796F5049ACF587D6235CF319/ReplacePattern/@EntryValue">Assert.That($param1$, Is.Null.Or.Empty, $param2$)</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=ABFAF84E796F5049ACF587D6235CF319/SearchPattern/@EntryValue">Assert.IsNullOrEmpty($param1$, $param2$)</s:String>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=D4A89E7B30360549A30B7E615085DE36/@KeyIndexDefined">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=D4A89E7B30360549A30B7E615085DE36/CustomPatternPlaceholder/=param1/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/PatternsAndTemplates/StructuralSearch/Pattern/=D4A89E7B30360549A30B7E615085DE36/CustomPatternPlaceholder/=param1/Properties/=Maximal/@EntryIndexedValue">1</s:String>
