@@ -24,8 +24,8 @@ namespace NUnit_v3_samples
             TestGenericForArbitraryArray(array);
         } 
 
-        [Theory]
-        public void TestGenericForArbitraryArray<T>(T[,] array)
+        //[Theory]
+        private void TestGenericForArbitraryArray<T>(T[,] array)
         {
             Console.WriteLine("TestGenericForArbitraryArray()");
             // ...
