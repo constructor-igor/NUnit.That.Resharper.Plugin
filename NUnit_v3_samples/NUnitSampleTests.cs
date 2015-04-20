@@ -71,7 +71,6 @@ namespace NUnit_v3_samples
             Assert.That(() => { foo4("customer message"); },  Throws.TypeOf(typeof (NotImplementedException)).And.Message.EqualTo("customer message"));
         }
 
-
         void foo1()
         {
         }
