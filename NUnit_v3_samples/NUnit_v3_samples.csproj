@@ -65,6 +65,7 @@
     <Compile Include="ExplicitTests.cs" />
     <Compile Include="NUnitIssue24.cs" />
     <Compile Include="NUnitIssue320.cs" />
+    <Compile Include="NUnitIssue360.cs" />
     <Compile Include="NUnitIssue524.cs" />
     <Compile Include="NUnitSampleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NUnitIssue320.cs" />
+    <Compile Include="NUnitIssue360.cs" />
     <Compile Include="NUnitIssue524.cs" />
     <Compile Include="NUnitSampleCollectionTests.cs" />
     <Compile Include="NUnitSampleTests.cs" />
