@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NUnit.That.Resharper.Plugin")]
-[assembly: AssemblyDescription("Resharper v9 plugin to transfer nunit attributes and methods to Assert.That")]
+[assembly: AssemblyDescription("Resharper v8 plugin to transfer nunit attributes and methods to Assert.That")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("constructor")]
 [assembly: AssemblyProduct("NUnit.That.Resharper.Plugin")]
@@ -33,4 +33,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.9.0.5")]
 [assembly: AssemblyFileVersion("0.9.0.5")]
-

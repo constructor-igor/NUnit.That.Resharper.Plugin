@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using JetBrains.Application.Progress;
@@ -19,7 +19,8 @@ namespace NUnit.That.Resharper_v9.Plugin
 {
     [ContextAction(Group = "C#",
         Name = "Replace ExpectedException attribute with constraint-based syntax.",
-        Description = "Replace ExpectedException attribute with constraint-based syntax; e.g., changes [ExpectedException] to Assert.That(<expression>, Throws.InstanceOf<Exception>())",
+        Description =
+            "Replace ExpectedException attribute with constraint-based syntax; e.g., changes [ExpectedException] to Assert.That(<expression>, Throws.InstanceOf<Exception>())",
         Priority = 15)]
     public class ExpectedExceptionToConstrainBased : BulbActionBase, IContextAction
     {
