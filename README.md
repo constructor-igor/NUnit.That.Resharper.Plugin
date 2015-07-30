@@ -4,7 +4,6 @@
 NUnit.That.Resharper.Plugin helps to convert Assert methods and nunit attributes to Assert.That method.
 
 NUnit.That.Resharper.Plugin in [Resharper gallery v9](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v9.Plugin/)
-
 NUnit.That.Resharper.Plugin in [Resharper gallery v8](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v8.Plugin/)
 
 ### Intro
