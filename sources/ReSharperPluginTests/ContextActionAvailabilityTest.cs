@@ -1,6 +1,6 @@
-using JetBrains.ReSharper.Intentions.CSharp.Test;
+using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
 using NUnit.Framework;
-using NUnit.That.Resharper_v8.Plugin;
+using NUnit.That.Resharper_v9.Plugin;
 
 namespace ReSharperPluginTests
 {
