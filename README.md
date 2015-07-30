@@ -19,7 +19,7 @@ can be converted to relevant Assert.That
 
 ###### Attributes
 - Attribute **ExpectedException** to Assert.That(code, Throws.TypeOf<Exception>()) construction
-- Attribute **Ignore** without parameter to Ignore("")
+- Attribute **Ignore** without parameter to **Ignore("")**
 
 ###### Assert methods
 - Assert.**IsNotNull**(expression) to Assert.That(expression, Is.Not.Null)
