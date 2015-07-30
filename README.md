@@ -18,13 +18,13 @@ can be converted to relevant Assert.That
 ### Short List:
 
 ###### Attributes
-- Attribute **ExpectedException** to Assert.That(code, Throws.TypeOf<Exception>()) construction
+- Attribute **ExpectedException** to **Assert.That(code, Throws.TypeOf<Exception>())** construction
 - Attribute **Ignore** without parameter to **Ignore("")**
 
 ###### Assert methods
-- Assert.**IsNotNull**(expression) to Assert.That(expression, Is.Not.Null)
-- Assert.**IsNullOrEmpty**(expression) to Assert.That(expression, Is.Null.Or.Empty)
-- Assert.**IsNotNullOrEmpty**(expression) to Assert.That(expression, Is.Not.Null.Or.Empty)
+- Assert.**IsNotNull**(expression) to **Assert.That(expression, Is.Not.Null)**
+- Assert.**IsNullOrEmpty**(expression) to **Assert.That(expression, Is.Null.Or.Empty)**
+- Assert.**IsNotNullOrEmpty**(expression) to **Assert.That(expression, Is.Not.Null.Or.Empty)**
 
 ### Samples:
 
