@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Text;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Feature.Services.ArchitectureModel.Graph;
 using JetBrains.ReSharper.Feature.Services.Bulbs;
-using JetBrains.ReSharper.Feature.Services.CSharp.Bulbs;
+using JetBrains.ReSharper.Feature.Services.ContextActions;
+using JetBrains.ReSharper.Feature.Services.CSharp.Analyses.Bulbs;
+using JetBrains.ReSharper.Feature.Services.Intentions;
 using JetBrains.ReSharper.Feature.Services.LinqTools;
-using JetBrains.ReSharper.Intentions.Extensibility;
-using JetBrains.ReSharper.Intentions.Extensibility.Menu;
 using JetBrains.ReSharper.Psi;
+using JetBrains.ReSharper.Psi.CSharp.Impl.Tree;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.TextControl;
 using JetBrains.Util;
 
-namespace NUnit.That.Resharper_v8.Plugin
+namespace NUnit.That.Resharper_v9.Plugin
 {
     [ContextAction(Group = "C#",
         Name = "Replace ExpectedException attribute with constraint-based syntax.",
-        Description =
-            "Replace ExpectedException attribute with constraint-based syntax; e.g., changes [ExpectedException] to Assert.That(<expression>, Throws.InstanceOf<Exception>())",
+        Description = "Replace ExpectedException attribute with constraint-based syntax; e.g., changes [ExpectedException] to Assert.That(<expression>, Throws.InstanceOf<Exception>())",
         Priority = 15)]
     public class ExpectedExceptionToConstrainBased : BulbActionBase, IContextAction
     {
@@ -33,7 +32,7 @@ namespace NUnit.That.Resharper_v8.Plugin
             "Framework.ExpectedExceptionAttribute",
             "NUnit.Framework.ExpectedException", 
             "NUnit.Framework.ExpectedExceptionAttribute"
-        }; 
+        };
         public ExpectedExceptionToConstrainBased(ICSharpContextActionDataProvider provider)
         {
             m_provider = provider;
@@ -81,7 +80,7 @@ namespace NUnit.That.Resharper_v8.Plugin
                     }
                 }
 
-                bool declarationStatement = statement.NodeType == JetBrains.ReSharper.Psi.CSharp.Impl.Tree.ElementType.DECLARATION_STATEMENT;
+                bool declarationStatement = statement.NodeType == ElementType.DECLARATION_STATEMENT;
                 bool lambda = !declarationStatement;
 
                 StringBuilder statementText = new StringBuilder();
@@ -91,7 +90,7 @@ namespace NUnit.That.Resharper_v8.Plugin
                 if (lambda)
                 {
                     statementText.Remove(statementText.Length - 1, 1); // TODO remove last ';'
-                    codeFormat = "()=>$0";                    
+                    codeFormat = "()=>$0";
                 }
 
                 string newExpressionFormat;

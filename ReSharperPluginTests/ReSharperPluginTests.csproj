@@ -71,12 +71,6 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NUnit.That.Resharper_v8.Plugin\NUnit.That.Resharper_v8.Plugin.csproj">
-      <Project>{D027BE6C-F9B3-442F-8753-A0B89EA232C6}</Project>
-      <Name>NUnit.That.Resharper_v8.Plugin</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

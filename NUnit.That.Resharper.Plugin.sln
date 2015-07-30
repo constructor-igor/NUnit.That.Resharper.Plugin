@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0F6DBC6D-E878-46C8-928E-D0BC543D01CF}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit_v2_samples", "NUnit_v
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit_v3_samples", "NUnit_v3_samples\NUnit_v3_samples.csproj", "{367AD7D1-9BF1-486D-8BB5-4E04471D38D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.That.Resharper_v8.Plugin", "NUnit.That.Resharper_v8.Plugin\NUnit.That.Resharper_v8.Plugin.csproj", "{D027BE6C-F9B3-442F-8753-A0B89EA232C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.That.Resharper_v9.Plugin", "NUnit.That.Resharper_v8.Plugin\NUnit.That.Resharper_v9.Plugin.csproj", "{D027BE6C-F9B3-442F-8753-A0B89EA232C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProjects", "TestProjects", "{AAAF22EF-CC3D-41BC-87C8-875B52B86DA9}"
 EndProject
@@ -39,7 +39,6 @@ Global
 		{D027BE6C-F9B3-442F-8753-A0B89EA232C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D027BE6C-F9B3-442F-8753-A0B89EA232C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3487B4B7-F6F0-406E-AD82-5197AF223765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3487B4B7-F6F0-406E-AD82-5197AF223765}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3487B4B7-F6F0-406E-AD82-5197AF223765}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3487B4B7-F6F0-406E-AD82-5197AF223765}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
