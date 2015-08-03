@@ -15,6 +15,10 @@ can be converted to relevant Assert.That
 
 ![alt tag](screens/AttributeConvertedToAssertThat.png)
 
+Advanced "Navigate To.." commands:
+
+![alt tag](screens/NavigateTo.png)
+
 ### Short List:
 
 ###### Attributes
