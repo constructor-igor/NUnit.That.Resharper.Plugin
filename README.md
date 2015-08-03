@@ -26,6 +26,10 @@ can be converted to relevant Assert.That
 - Assert.**IsNullOrEmpty**(expression) to Assert.**That**(expression, Is.Null.Or.Empty)
 - Assert.**IsNotNullOrEmpty**(expression) to Assert.**That**(expression, Is.Not.Null.Or.Empty)
 
+###### "Navigate To..." Commands
+- Open Containing Folder
+- Open Project Output Folder
+
 ### Samples:
 
 ###### Attribute ExpectedException
