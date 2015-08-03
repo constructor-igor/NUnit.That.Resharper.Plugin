@@ -27,8 +27,8 @@ can be converted to relevant Assert.That
 - Assert.**IsNotNullOrEmpty**(expression) to Assert.**That**(expression, Is.Not.Null.Or.Empty)
 
 ###### "Navigate To..." Commands
-- Open Containing Folder
-- Open Project Output Folder
+- **Open Containing Folder** Open Windows Explorer on selected source file
+- **Open Project Output Folder (<output file>)** Open Windows Explorer on project output file
 
 ### Samples:
 
