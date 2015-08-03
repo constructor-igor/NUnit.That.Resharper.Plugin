@@ -155,6 +155,7 @@
   <ItemGroup>
     <Compile Include="ExpectedExceptionToConstrainBased.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="ProjectOutputNavigationProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZoneMarker.cs" />
   </ItemGroup>
