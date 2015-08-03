@@ -17,7 +17,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\*.*" target="DotFiles\" />
+    <file src="bin\$configuration$\*.*" target="DotFiles\" />
 	<file src="settings\**\*.*" target="DotFiles\Extensions\NUnit.That.Resharper_v9.Plugin\settings\" />
   </files>
 </package>
