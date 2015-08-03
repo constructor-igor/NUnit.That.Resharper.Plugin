@@ -2,15 +2,15 @@
 <package >
   <metadata>
     <id>NUnit.That.Resharper_v9.Plugin</id>
-    <version>0.9.0.4</version>
+    <version>$version$</version>
     <title>NUnit.That.Resharper.Plugin</title>
-    <authors>constructor</authors>
-    <owners>constructor</owners>
+    <authors>Igor Ziselman</authors>
+    <owners>Igor Ziselman</owners>
     <projectUrl>https://github.com/constructor-igor/NUnit.That.Resharper.Plugin</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Resharper v9 plugin to transfer nunit attributes and methods to Assert.That</description>
     <releaseNotes>Transfer to NUnit constraint-based Assert model (Assert.That)</releaseNotes>
-    <copyright>Copyright 2015</copyright>
+    <copyright>Copyright &#x00A9; 2015 Igor Ziselman</copyright>
     <tags>c# nunit Assert.That ExpectedException</tags>
     <dependencies>
       <dependency id="Wave" version="[2.0]" />
