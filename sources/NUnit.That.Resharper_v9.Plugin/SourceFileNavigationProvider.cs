@@ -4,22 +4,22 @@ using System.Diagnostics;
 using JetBrains.Annotations;
 using JetBrains.Application.DataContext;
 using JetBrains.ProjectModel;
-using JetBrains.ProjectModel.DataContext;
 using JetBrains.ReSharper.Feature.Services.Navigation.ContextNavigation;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
+using DataConstants = JetBrains.ProjectModel.DataContext.DataConstants;
 
 namespace NUnit.That.Resharper_v9.Plugin
 {
     [ActionHandler(null)]
-    public class ProjectOutputNavigation : ContextNavigationActionBase<ProjectOutputNavigationProvider>
+    public class SourceFileNavigation : ContextNavigationActionBase<SourceFileNavigationProvider>
     {
     }
 
     [ContextNavigationProvider]
-    public class ProjectOutputNavigationProvider : INavigateFromHereProvider
+    public class SourceFileNavigationProvider : INavigateFromHereProvider
     {
-        #region Implementation of IWorkflowProvider<ContextNavigation,out NavigationActionGroup>
+        #region INavigateFromHereProvider
         public IEnumerable<ContextNavigation> CreateWorkflow(IDataContext dataContext)
         {
             var path = GetPathByContext(dataContext);
@@ -28,7 +28,7 @@ namespace NUnit.That.Resharper_v9.Plugin
                 ProcessStartInfo processStartInfo = GetProcessStartInfo(path);
                 if (processStartInfo != null)
                 {
-                        yield return new ContextNavigation(String.Format("Open &Project Output Folder ({0})", path.Name), null, NavigationActionGroup.Other,
+                    yield return new ContextNavigation("&Open Containing Folder", null, NavigationActionGroup.Other,
                         () =>
                         {
                             try
@@ -44,7 +44,7 @@ namespace NUnit.That.Resharper_v9.Plugin
             }
         }
         #endregion
-        
+        [CanBeNull]
         private static ProcessStartInfo GetProcessStartInfo([NotNull] FileSystemPath path)
         {
             return new ProcessStartInfo("explorer.exe",
@@ -53,10 +53,16 @@ namespace NUnit.That.Resharper_v9.Plugin
         [CanBeNull]
         private static FileSystemPath GetPathByContext([NotNull] IDataContext context)
         {
-            ProjectsContext projectModelElement = context.Projects();
-            if (projectModelElement.Project != null)
-                return projectModelElement.Project.GetOutputFilePath();
-            return null;
+            var projectModelElement = context.GetData(DataConstants.PROJECT_MODEL_ELEMENT);
+
+            var projectItem = projectModelElement as IProjectItem;
+            if (projectItem == null)
+                return null;
+
+            if (!projectItem.Location.Directory.ExistsDirectory)
+                return null;
+
+            return projectItem.Location;
         }
     }
 }
