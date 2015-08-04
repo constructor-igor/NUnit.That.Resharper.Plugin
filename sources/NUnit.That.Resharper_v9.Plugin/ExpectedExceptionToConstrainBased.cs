@@ -150,6 +150,10 @@ namespace NUnit.That.Resharper_v9.Plugin
             //bool expectedExceptionDefined = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedExceptionAttribute") != null;
             bool expectedExceptionDefined = methodDeclaration.GetAttributeExact(m_attributesList) != null;
             var statement = m_provider.GetSelectedElement<IStatement>(false, false);
+
+//            var selectedTreeNode = m_provider.GetSelectedElement<ITreeNode>(false, false);
+//            FileSystemPath filePath = FolderNavigationProvider.GetFilePath(selectedTreeNode);
+
             bool statementSelected = statement != null;
             return expectedExceptionDefined && statementSelected;
         }

@@ -7,7 +7,10 @@ using JetBrains.Application.DataContext;
 using JetBrains.Decompiler.Ast;
 using JetBrains.ProjectModel.DataContext;
 using JetBrains.ReSharper.Feature.Services.Navigation.ContextNavigation;
+using JetBrains.ReSharper.Psi.CSharp.Impl.Tree;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
+using JetBrains.ReSharper.Psi.parsing;
+using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
@@ -55,26 +58,53 @@ namespace NUnit.That.Resharper_v9.Plugin
         [CanBeNull]
         private static FileSystemPath GetPathByContext([NotNull] IDataContext context)
         {
-            //return null;
-            ITreeNode selectedExpression = context.GetData(JetBrains.ReSharper.Psi.Services.DataConstants.SELECTED_EXPRESSION); //, it should give you the current ITreeNode.
-            //IStringLiteralOwner stringExpression = selectedExpression as IStringLiteralOwner;
-            IStringLiteralOwner stringExpression = selectedExpression as IStringLiteralOwner;
-            if (stringExpression != null)
+            ITreeNode selectedExpression = context.GetData(JetBrains.ReSharper.Psi.Services.DataConstants.SELECTED_EXPRESSION);
+            return GetFilePath(selectedExpression);
+        }
+
+        public static FileSystemPath GetFilePath(ITreeNode selectedExpression)
+        {
+            try
             {
-                string stringValue = (string) stringExpression.ConstantValue.Value;
-                if (File.Exists(stringValue))
+                CSharpGenericToken stringExpression;
+                ICSharpLiteralExpression literalExpression = selectedExpression as ICSharpLiteralExpression;
+                if (literalExpression != null)
                 {
-                    return FileSystemPath.CreateByCanonicalPath(stringValue);
+                    stringExpression = literalExpression.Literal as CSharpGenericToken;
                 }
-             }
-            return null;
-            //throw new NotImplementedException();
-//            var statement = context.GetSelectedTreeNode<IStatement>(context);
-//
-//            ProjectsContext projectModelElement = context.Projects();
-//            if (projectModelElement.Project!=null)
-//                return projectModelElement.Project.GetOutputDirectory();
-//            return null;
+                else
+                {
+                    stringExpression = selectedExpression as CSharpGenericToken;
+                }
+
+                if (stringExpression != null)
+                {
+                    string stringLiteralValue = stringExpression.GetText();
+                    TokenNodeType tokenType = stringExpression.GetTokenType();
+                    switch (tokenType.ToString())
+                    {
+                        case "STRING_LITERAL_VERBATIM":
+                            stringLiteralValue = stringLiteralValue.Substring(2, stringLiteralValue.Length - 3);
+                            if (File.Exists(stringLiteralValue))
+                            {
+                                return FileSystemPath.CreateByCanonicalPath(stringLiteralValue);
+                            }
+                            break;
+                        case "STRING_LITERAL_REGULAR":
+                            stringLiteralValue = stringLiteralValue.Substring(1, stringLiteralValue.Length - 2);
+                            if (File.Exists(stringLiteralValue))
+                            {
+                                return FileSystemPath.CreateByCanonicalPath(stringLiteralValue);
+                            }
+                            break;
+                    }
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

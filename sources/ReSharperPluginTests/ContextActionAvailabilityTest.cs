@@ -30,5 +30,12 @@ namespace ReSharperPluginTests
         {
             DoTestFiles(testSrc);
         }
+
+//        [TestCase("availabilityString.cs")]
+//        [TestCase("availabilityString1.cs")]
+//        public void ExpressionInvestigation(string testSrc)
+//        {
+//            DoTestFiles(testSrc);
+//        }
     }
 }
