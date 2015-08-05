@@ -33,8 +33,8 @@ Advanced "Navigate To.." commands:
 
 ###### "Navigate To..." Commands
 - **Open Containing Folder** Open Windows Explorer on selected source file
-- **Open Project Output Folder (<output file>)** Open Windows Explorer on project output file
-- **Open Folder (<file>)** Open Windows Explorer with selected file
+- **Open Project Output Folder (output file)** Open Windows Explorer on project output file
+- **Open Folder (file)** Open Windows Explorer with selected file
 
 ### Samples:
 
