@@ -4,16 +4,14 @@ using System.Diagnostics;
 using System.IO;
 using JetBrains.Annotations;
 using JetBrains.Application.DataContext;
-using JetBrains.Decompiler.Ast;
-using JetBrains.ProjectModel.DataContext;
 using JetBrains.ReSharper.Feature.Services.Navigation.ContextNavigation;
 using JetBrains.ReSharper.Psi.CSharp.Impl.Tree;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
-using JetBrains.ReSharper.Psi.parsing;
 using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
+using DataConstants = JetBrains.ReSharper.Psi.Services.DataConstants;
 
 namespace NUnit.That.Resharper_v9.Plugin
 {
@@ -52,13 +50,14 @@ namespace NUnit.That.Resharper_v9.Plugin
         #endregion
         private static ProcessStartInfo GetProcessStartInfo([NotNull] FileSystemPath path)
         {
+            string fullPath = Path.GetFullPath(path.FullPath);
             return new ProcessStartInfo("explorer.exe",
-                path.ExistsFile ? string.Format(@"/select,""{0}""", path) : string.Format(@"""{0}""", path.Directory));
+                path.ExistsFile ? string.Format(@"/select,""{0}""", fullPath) : string.Format(@"""{0}""", path.Directory));
         }
         [CanBeNull]
         private static FileSystemPath GetPathByContext([NotNull] IDataContext context)
         {
-            ITreeNode selectedExpression = context.GetData(JetBrains.ReSharper.Psi.Services.DataConstants.SELECTED_EXPRESSION);
+            ITreeNode selectedExpression = context.GetData(DataConstants.SELECTED_EXPRESSION);
             return GetFilePath(selectedExpression);
         }
 

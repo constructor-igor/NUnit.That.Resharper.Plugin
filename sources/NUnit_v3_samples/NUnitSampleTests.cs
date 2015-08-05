@@ -87,5 +87,15 @@ namespace NUnit_v3_samples
         {
             throw new NotImplementedException();
         }
+
+        [Test]
+        public void Test_OpenFolder_Navigation()
+        {
+            string fileName1 = @"d:\file.txt";
+            string fileName2 = "d:\\file.txt";
+
+            FileAssert.Exists(fileName1);
+            FileAssert.Exists(fileName2);
+        }
     }
 }
