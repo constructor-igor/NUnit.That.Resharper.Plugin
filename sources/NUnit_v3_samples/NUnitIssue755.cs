@@ -14,25 +14,25 @@ namespace NUnit_v3_samples
 
         // it works!
         [Test, Timeout(TIME_OUT_TIME), Parallelizable(ParallelScope.Fixtures)]
-        public void TestTimeOutElapsed()
+        public async Task TestTimeOutElapsed()
         {
-            TestTimeOutCase(TIMEOUTED_TIME);
+            await TestTimeOutCase(TIMEOUTED_TIME);
         }
 
         // it works!
         [Test, Timeout(TIME_OUT_TIME), Parallelizable(ParallelScope.Fixtures)]
-        public void TestTimeOutNotElapsed()
+        public async Task TestTimeOutNotElapsed()
         {
-            TestTimeOutCase(NOT_TIMEOUTED_TIME);
+            await TestTimeOutCase(NOT_TIMEOUTED_TIME);
         }
 
         // it doesn't work (both tests end successfully)
         static List<object[]> Delays = new List<object[]>() { new object[] { NOT_TIMEOUTED_TIME }, new object[] { TIMEOUTED_TIME } };
 
         [Test, Timeout(TIME_OUT_TIME), TestCaseSource("Delays"), Parallelizable(ParallelScope.Fixtures)]
-        public void TestTimeOutCase(int delay)
+        public async Task TestTimeOutCase(int delay)
         {
-            Task.Delay(delay);
+            await Task.Delay(delay);
         }
 
     }
