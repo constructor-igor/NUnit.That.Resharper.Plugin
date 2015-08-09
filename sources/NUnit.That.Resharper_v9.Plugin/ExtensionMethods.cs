@@ -10,6 +10,9 @@ namespace NUnit.That.Resharper_v9.Plugin
         [CanBeNull]
         public static IAttribute GetAttributeExact(this IAttributesOwnerDeclaration self, List<string> attributesList)
         {
+            if (self == null || !self.Attributes.Any())
+                return null;
+
             return self.Attributes.Where(a =>
             {
                 var valid = a.IsValid();

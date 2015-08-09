@@ -42,7 +42,15 @@ namespace NUnit.That.Resharper_v9.Plugin
         #region BulbActionBase
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
         {
-            var statement = m_provider.GetSelectedElement<IStatement>(false, false);
+            IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
+            var statement = m_provider.GetSelectedElement<IStatement>(false, false);            
+
+            if (statement == null && methodDeclaration!=null)
+            {
+                TreeNodeCollection<ICSharpStatement> methodStatements = methodDeclaration.Body.Statements;
+                statement = methodStatements.Last();
+            }
+
             if (statement != null)
             {
                 IAttribute foundAttribute = null;
@@ -50,7 +58,6 @@ namespace NUnit.That.Resharper_v9.Plugin
                 string expectedExceptionType = null;
                 string expectedExceptionMessage = null;
 
-                IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
                 if (methodDeclaration != null)
                 {
                     foundAttribute = methodDeclaration.GetAttributeExact(m_attributesList);
@@ -147,15 +154,22 @@ namespace NUnit.That.Resharper_v9.Plugin
         public bool IsAvailable(IUserDataHolder cache)
         {
             IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
-            //bool expectedExceptionDefined = methodDeclaration.GetAttributeExact("NUnit.Framework.ExpectedExceptionAttribute") != null;
+
             bool expectedExceptionDefined = methodDeclaration.GetAttributeExact(m_attributesList) != null;
+            if (!expectedExceptionDefined)
+                return false;
+
             var statement = m_provider.GetSelectedElement<IStatement>(false, false);
+            if (statement != null)
+                return true;
 
-//            var selectedTreeNode = m_provider.GetSelectedElement<ITreeNode>(false, false);
-//            FileSystemPath filePath = FolderNavigationProvider.GetFilePath(selectedTreeNode);
+            IAttribute attributeDeclaration = m_provider.GetSelectedElement<IAttribute>(false, false);
+            if (attributeDeclaration != null && methodDeclaration.HasAnyBody() && methodDeclaration.Body.Statements.Any())
+            {
+                return true;
+            }
 
-            bool statementSelected = statement != null;
-            return expectedExceptionDefined && statementSelected;
+            return false;            
         }
         #endregion
     }

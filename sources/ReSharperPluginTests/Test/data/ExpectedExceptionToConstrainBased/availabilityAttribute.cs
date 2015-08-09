@@ -7,7 +7,7 @@ namespace NUnit_v2_samples
     public class NUnitSampleAttributesTests
     {
         [Test]
-        [ExpectedException]
+        [ExpectedException{on}]
         public void Test1Exception()
         {
             foo1();
@@ -15,8 +15,9 @@ namespace NUnit_v2_samples
             foo1();
         }
 
-        [Test, ExpectedException]
-        public void Test2Exception()
+        {off}
+        [Test, {on}ExpectedException]
+        public void Test2Exception(){off}
         {
             foo1();
             {on}foo2();
@@ -48,6 +49,11 @@ namespace NUnit_v2_samples
         void foo2()
         {
             throw new NotImplementedException();
+        }
+
+        [{off}ExpectedException]
+        void foo3()
+        {            
         }
     }
 }

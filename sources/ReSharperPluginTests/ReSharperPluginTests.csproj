@@ -170,7 +170,9 @@
     <Compile Include="ContextActionExecutionTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestEnvironment.cs" />
+    <None Include="Test\data\ExpectedExceptionToConstrainBased\executionAttribute_SelectedAttribute.cs" />
     <None Include="packages.config" />
+    <None Include="Test\data\ExpectedExceptionToConstrainBased\executionAttribute_SelectedAttribute.cs.gold" />
     <None Include="Test\data\ExpectedExceptionToConstrainBased\executionExpectedException.cs" />
     <None Include="Test\data\ExpectedExceptionToConstrainBased\executionCustomerMessage.cs" />
     <None Include="Test\data\ExpectedExceptionToConstrainBased\executionCustomerMessage.cs.gold" />
