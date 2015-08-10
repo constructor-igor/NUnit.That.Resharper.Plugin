@@ -159,12 +159,15 @@ namespace NUnit.That.Resharper_v9.Plugin
             if (!expectedExceptionDefined)
                 return false;
 
-            var statement = m_provider.GetSelectedElement<IStatement>(false, false);
-            if (statement != null)
+            IStatement statement = m_provider.GetSelectedElement<IStatement>(false, false);
+            if (SupportedStatement(statement))
                 return true;
 
             IAttribute attributeDeclaration = m_provider.GetSelectedElement<IAttribute>(false, false);
-            if (attributeDeclaration != null && methodDeclaration.HasAnyBody() && methodDeclaration.Body.Statements.Any())
+            if (attributeDeclaration != null 
+                && methodDeclaration.HasAnyBody() 
+                && methodDeclaration.Body.Statements.Any()
+                && SupportedStatement(methodDeclaration.Body.Statements.Last()))
             {
                 return true;
             }
@@ -172,5 +175,10 @@ namespace NUnit.That.Resharper_v9.Plugin
             return false;            
         }
         #endregion
+
+        private bool SupportedStatement(IStatement statement)
+        {
+            return statement != null && !(statement is IUsingStatement);
+        }
     }
 }
