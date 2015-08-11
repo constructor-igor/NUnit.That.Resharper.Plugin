@@ -55,15 +55,5 @@ namespace NUnit_v2_samples
         void foo3()
         {            
         }
-
-        [Test]
-        [{off}ExpectedException(typeof(ProductDllException), ExpectedMessage = "Export requires 2 persons, but found 1.")]
-        public void Export_ExpectedException()
-        {
-            using (TemporaryDisposableClass temporaryFile = new TemporaryDisposableClass())
-            {
-                foo1();
-            }
-        }
     }
 }

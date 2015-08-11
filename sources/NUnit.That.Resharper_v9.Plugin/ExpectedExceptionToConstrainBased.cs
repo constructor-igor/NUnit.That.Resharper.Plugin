@@ -8,9 +8,12 @@ using JetBrains.ReSharper.Feature.Services.ContextActions;
 using JetBrains.ReSharper.Feature.Services.CSharp.Analyses.Bulbs;
 using JetBrains.ReSharper.Feature.Services.Intentions;
 using JetBrains.ReSharper.Feature.Services.LinqTools;
+using JetBrains.ReSharper.I18n.Services;
 using JetBrains.ReSharper.Psi;
+using JetBrains.ReSharper.Psi.Cpp.Tree;
 using JetBrains.ReSharper.Psi.CSharp.Impl.Tree;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
+using JetBrains.ReSharper.Psi.Impl.CodeStyle;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.TextControl;
 using JetBrains.Util;
@@ -69,7 +72,15 @@ namespace NUnit.That.Resharper_v9.Plugin
                             if (exprType.ToString() == "System.Type")
                             {
                                 expectedExceptionTypeOfExpr = argument.Value.GetText();
-                                expectedExceptionType = argument.Value.FirstChild.NextSibling.NextSibling.GetText();
+                                expectedExceptionType = null;
+
+                                ITreeNode child = argument.Value.FirstChild;
+                                while (child != null && !(child is IUserTypeUsage))
+                                {
+                                    child = child.NextSibling;
+                                }
+                                if (child!=null)
+                                    expectedExceptionType = child.GetText();
                             }
                         }
                         foreach (IPropertyAssignment propertyAssignment in foundAttribute.PropertyAssignments)
@@ -130,7 +141,10 @@ namespace NUnit.That.Resharper_v9.Plugin
                     }
                 }
                 ICSharpStatement newStatement = m_provider.ElementFactory.CreateStatement(newExpressionFormat, newStatementExpression);
-                statement.ReplaceBy(newStatement);
+                IStatement updatedStatement = statement.ReplaceBy(newStatement);
+
+                //m_provider.TextControl.Caret.MoveTo(updatedStatement.);
+                //m_provider.TextControl.Caret.MoveTo(updatedStatement.GetDocumentRange().TextRange.StartOffset, CaretVisualPlacement.DontScrollIfVisible);
 
                 if (foundAttribute != null)
                 {
