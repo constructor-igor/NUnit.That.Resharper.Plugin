@@ -47,7 +47,22 @@ namespace NUnit_v2_samples
 
         [Test]
         [Ignore]
-        public void IgnoreTest()
+        public void IgnoreTest1()
+        {
+            Assert.Fail();
+        }
+
+        [Test, Ignore]
+        public void IgnoreTest2()
+        {
+            int Ignore = 0;
+            int[] testArray = {0};
+            testArray[Ignore] = 0;
+            Assert.Fail();
+        }
+
+        [Category("ignore testing"), Ignore, Test]
+        public void IgnoreTest3()
         {
             Assert.Fail();
         }
