@@ -101,7 +101,16 @@ namespace NUnit_v2_samples
             foo2();
             foo1();
         }
-//        [Test]
+
+        [Test]
+        [ExpectedException(ExpectedMessage = "custom message")]
+        public void TestExpectedExceptionWithMessageOnly()
+        {
+            foo1();
+            foo2();
+            foo1();
+        }
+        //        [Test]
 //        [ExpectedException(typeof(Exception))]
 //        public void TestExpectedExceptionWithBasicType()
 //        {
