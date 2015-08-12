@@ -119,8 +119,16 @@ namespace NUnit.That.Resharper_v9.Plugin
                 if (expectedExceptionTypeOfExpr == null)
                 {
                     //const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
-                    newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.Exception);";
-                    newStatementExpression = new object[] { statementText.ToString() };
+                    if (expectedExceptionMessage == null)
+                    {
+                        newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.Exception);";
+                        newStatementExpression = new object[] {statementText.ToString()};
+                    }
+                    else
+                    {
+                        newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.Exception.And.Message.EqualTo($1));";
+                        newStatementExpression = new object[] { statementText.ToString(), expectedExceptionMessage };
+                    }
                 }
                 else
                 {
