@@ -164,6 +164,13 @@ namespace NUnit_v2_samples
         }
 
         [Test]
+        [ExpectedException(typeof ( ArgumentException))]
+        public void TestExpectedException_With_Space()
+        {
+            foo1();
+        }
+
+        [Test]
         [ExpectedException(typeof(ArgumentException), ExpectedException = typeof(NotImplementedException))]
         public void TestExpectedExceptionWithExpectedExceptionProperty()
         {
