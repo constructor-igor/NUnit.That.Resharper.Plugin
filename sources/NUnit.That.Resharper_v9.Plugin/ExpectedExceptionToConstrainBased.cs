@@ -45,13 +45,15 @@ namespace NUnit.That.Resharper_v9.Plugin
         #region BulbActionBase
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
         {
+            bool moveCaretToUpdatedStatement = false;
             IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
-            var statement = m_provider.GetSelectedElement<IStatement>(false, false);            
+            var statement = m_provider.GetSelectedElement<IStatement>(false, false);
 
             if (statement == null && methodDeclaration!=null)
             {
                 TreeNodeCollection<ICSharpStatement> methodStatements = methodDeclaration.Body.Statements;
                 statement = methodStatements.Last();
+                moveCaretToUpdatedStatement = true;
             }
 
             if (statement != null)
@@ -150,6 +152,11 @@ namespace NUnit.That.Resharper_v9.Plugin
                 {
                     methodDeclaration.RemoveAttribute(foundAttribute);
                 }
+
+                if (moveCaretToUpdatedStatement)
+                    return textControl =>
+                        textControl.Caret.MoveTo(updatedStatement.GetDocumentRange().TextRange.StartOffset,
+                        CaretVisualPlacement.DontScrollIfVisible);
             }
 
             return null;
