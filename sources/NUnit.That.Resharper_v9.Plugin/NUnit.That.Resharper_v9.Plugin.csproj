@@ -156,6 +156,7 @@
     <Compile Include="ExpectedExceptionToConstrainBased.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="FolderNavigationProvider.cs" />
+    <Compile Include="ProjectOutputInExplorerActionItem.cs" />
     <Compile Include="ProjectOutputNavigationProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourceFileNavigationProvider.cs" />

@@ -4,7 +4,7 @@ if "%config%" == "" (
    set config=Debug
 )
 set nuget=nuget\.nuget\NuGet.exe
-set version=0.9.0.19
+set version=0.9.0.28
 set outputDirectory=..\Packages\%config%
 
 %WINDIR%\Microsoft.NET\Framework\v4.0.30319\msbuild ..\sources\NUnit.That.Resharper.Plugin.sln /t:Rebuild /p:Configuration="%config%" /m /fl /flp:LogFile=msbuild.log;Verbosity=Normal /nr:false 
