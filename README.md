@@ -24,6 +24,10 @@ Advanced "Navigate To.." commands:
 ![alt tag](screens/NavigateTo.png)
 ![alt tag](screens/NavigateTo_OpenFolder.png)
 
+Project menu commands:
+
+![alt tag](screens/OpenOutputFolderInProjectMenu.png)
+
 ### Short List:
 
 ###### Attributes
@@ -39,6 +43,9 @@ Advanced "Navigate To.." commands:
 - **Open Containing Folder** Open Windows Explorer on selected source file
 - **Open Project Output Folder (output file)** Open Windows Explorer on project output file
 - **Open Folder (file)** Open Windows Explorer with selected file
+
+###### Project menu Commands
+- **Open Output Folder in File Explorer** Open Windows Explorer on project output file
 
 ### Samples:
 
