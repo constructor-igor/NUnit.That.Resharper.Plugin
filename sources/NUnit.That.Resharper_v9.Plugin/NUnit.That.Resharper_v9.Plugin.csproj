@@ -158,6 +158,7 @@
     <Compile Include="FolderNavigationProvider.cs" />
     <Compile Include="ProjectOutputInExplorerActionItem.cs" />
     <Compile Include="ProjectOutputNavigationProvider.cs" />
+    <Compile Include="ProjectReferencesCopyLocalFalseActionItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourceFileNavigationProvider.cs" />
     <Compile Include="ZoneMarker.cs" />
