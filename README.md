@@ -28,6 +28,9 @@ Project menu commands:
 
 ![alt tag](screens/OpenOutputFolderInProjectMenu.png)
 
+![alt tag](screens/ShowCopyLocalFalse_ProjectMenu.png)
+![alt tag](screens/NUnit.That.CopyLocal.Output.png)
+
 ### Short List:
 
 ###### Attributes
@@ -46,6 +49,7 @@ Project menu commands:
 
 ###### Project menu Commands
 - **Open Output Folder in File Explorer** Open Windows Explorer on project output file
+- **Show 'Copy Local == False' references in 'Output'** Show list of project's references with Copy Local == False
 
 ### Samples:
 
