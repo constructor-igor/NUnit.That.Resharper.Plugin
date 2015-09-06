@@ -28,14 +28,14 @@ namespace NUnit.That.Resharper_v9.Plugin
             {
                 if (project != null)
                 {
-                    IEnumerable<IProjectToModuleReference> allReferences = project.GetModuleReferences(TargetFrameworkId.Default).ToList();
+                    List<IProjectToModuleReference> allReferences = project.GetModuleReferences(TargetFrameworkId.Default).ToList();
                     if (allReferences.Any())
                     {                        
                         List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
                         if (copyLocalFalseReferencesList.Count > 0)
                         {
                             outputTabManager.OutputString("\nProject: {0}", project.Name);
-                            outputTabManager.OutputString("\nList of 'Copy Local' == True references ({0}) from {1}:\n", copyLocalFalseReferencesList.Count, allReferences.Count());
+                            outputTabManager.OutputString("\nList of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
                             copyLocalFalseReferencesList.ForEach(r => outputTabManager.OutputString("\t{0}\n", r.Name));
                             outputTabManager.OutputString("\n");
                         }

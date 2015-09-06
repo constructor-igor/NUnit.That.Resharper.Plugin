@@ -27,12 +27,12 @@ namespace NUnit.That.Resharper_v9.Plugin
         {            
 //            GetReferencesList(context)
 //                .ForEach(r=>r.SetProperty(new Key("Copy Local"), false));            
-            List<IProjectToModuleReference> allReferences = GetReferencesList(context);
+            List<IProjectToModuleReference> allReferences = GetReferencesList(context).ToList();
             List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
             if (copyLocalFalseReferencesList.Count > 0)
             {
                 OutputTabManager outputTabManager = new OutputTabManager();
-                outputTabManager.OutputString("\nList of 'Copy Local' == True references ({0}) from {1}:\n", copyLocalFalseReferencesList.Count, allReferences.Count());
+                outputTabManager.OutputString("\nList of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
                 copyLocalFalseReferencesList
                     .ForEach(r => outputTabManager.OutputString("\t{0}\n", r.Name));
                 outputTabManager.OutputString("\n");
