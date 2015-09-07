@@ -12,7 +12,7 @@ using JetBrains.UI.ActionsRevised;
 
 namespace NUnit.That.Resharper_v9.Plugin
 {
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectReferencesCopyLocalFalseActionItem", "Show 'Copy Local == False' references in 'Output'", Id = 20203)]
+    [Action("NUnit.That.Resharper_v9.Plugin.ProjectReferencesCopyLocalFalseActionItem", "Project: Show 'Copy Local == True' references in 'Output'", Id = 20203)]
     public class ProjectReferencesCopyLocalFalseActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Modify_Project>
     {
         #region Implementation of IExecutableAction
@@ -20,13 +20,11 @@ namespace NUnit.That.Resharper_v9.Plugin
         {
             int count = GetReferencesList(context).Count(r=>r.CopyLocal);
             if (count > 0)
-                presentation.Text = String.Format("Show 'Copy Local == True' references ({0}) in 'Output'", count);
+                presentation.Text = String.Format("Project: Show 'Copy Local == True' references ({0}) in 'Output'", count);
             return count > 0;
         }
         public void Execute(IDataContext context, DelegateExecute nextExecute)
         {            
-//            GetReferencesList(context)
-//                .ForEach(r=>r.SetProperty(new Key("Copy Local"), false));            
             List<IProjectToModuleReference> allReferences = GetReferencesList(context).ToList();
             List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
             if (copyLocalFalseReferencesList.Count > 0)

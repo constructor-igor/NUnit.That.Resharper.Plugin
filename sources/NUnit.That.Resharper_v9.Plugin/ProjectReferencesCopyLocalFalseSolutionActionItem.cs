@@ -10,7 +10,7 @@ using JetBrains.UI.ActionsRevised;
 
 namespace NUnit.That.Resharper_v9.Plugin
 {
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectReferencesCopyLocalFalseSolutionActionItem", "Show 'Copy Local == False' references in 'Output'", Id = 20204)]
+    [Action("NUnit.That.Resharper_v9.Plugin.ProjectReferencesCopyLocalFalseSolutionActionItem", "Solution: Show 'Copy Local == True' references in 'Output'", Id = 20204)]
     public class ProjectReferencesCopyLocalFalseSolutionActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Misc>
     {
         #region Implementation of IExecutableAction
