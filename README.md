@@ -49,7 +49,10 @@ Project menu commands:
 
 ###### Project menu Commands
 - **Open Output Folder in File Explorer** Open Windows Explorer on project output file
-- **Show 'Copy Local == False' references in 'Output'** Show list of project's references with Copy Local == False
+- **Project: Show 'Copy Local == True' references in 'Output'** Show list of project's references with Copy Local == True
+
+###### Solution menu Commands
+- **Solution: Show 'Copy Local == True' references in 'Output'** Show list of all projects' references with Copy Local == True
 
 ### Samples:
 
