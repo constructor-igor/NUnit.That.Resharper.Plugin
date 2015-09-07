@@ -1,0 +1,11 @@
+
+What's new in Agent Mulder
+==========================
+
+v0.9.0.48
+---------
+- Implemented Issue #39 (Add file WhatsNew.txt)
+
+v0.9.0.47
+---------
+- Fixed Issue #38
