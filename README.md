@@ -52,6 +52,7 @@ Project menu commands:
 - **Project: Show 'Copy Local == True' references in 'Output'** Show list of project's references with Copy Local == True
 
 ###### Solution menu Commands
+- **Solution: Show projects structure in 'Output'** Show list of all projects' references with version and location. Shows lists of multi-version and multi-location references.
 - **Solution: Show 'Copy Local == True' references in 'Output'** Show list of all projects' references with Copy Local == True
 
 ### Samples:
