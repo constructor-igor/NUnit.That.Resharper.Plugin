@@ -29,7 +29,7 @@ namespace NUnit.That.Resharper_v9.Plugin
                 if (project != null)
                 {
                     List<IProjectToModuleReference> allReferences = project.GetModuleReferences(TargetFrameworkId.Default).ToList();
-                    if (allReferences.Any())
+                    if (Enumerable.Any(allReferences))
                     {                        
                         List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
                         if (copyLocalFalseReferencesList.Count > 0)

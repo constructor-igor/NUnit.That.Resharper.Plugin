@@ -50,6 +50,6 @@ D:\My\that_v9\v9\sources\NUnit.That.Resharper_v9.Plugin\bin\Debug\System.Windows
 D:\My\that_v9\v9\sources\NUnit.That.Resharper_v9.Plugin\bin\Debug\Vestris.ResourceLib.xml
 D:\My\that_v9\v9\sources\NUnit.That.Resharper_v9.Plugin\bin\Debug\WpfContrib.pdb
 D:\My\that_v9\v9\sources\NUnit.That.Resharper_v9.Plugin\bin\Debug\WpfContrib.xml
-D:\My\that_v9\v9\sources\NUnit.That.Resharper_v9.Plugin\obj\Debug\NUnit.That.Resharper_v9.Plugin.csprojResolveAssemblyReference.cache
 D:\My\that_v9\v9\sources\NUnit.That.Resharper_v9.Plugin\obj\Debug\NUnit.That.Resharper_v9.Plugin.dll
 D:\My\that_v9\v9\sources\NUnit.That.Resharper_v9.Plugin\obj\Debug\NUnit.That.Resharper_v9.Plugin.pdb
+D:\My\that_v9\v9\sources\NUnit.That.Resharper_v9.Plugin\obj\Debug\NUnit.That.Resharper_v9.Plugin.csprojResolveAssemblyReference.cache
