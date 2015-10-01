@@ -43,14 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NUnitIssue320.cs" />
-    <Compile Include="NUnitIssue360.cs" />
-    <Compile Include="NUnitIssue524.cs" />
-    <Compile Include="NUnitIssue637.cs" />
-    <Compile Include="NUnitSampleCollectionTests.cs" />
     <Compile Include="NUnitSampleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SetupSamples\SetUpFixture.cs" />
     <Compile Include="TheorySampleTests.cs" />
   </ItemGroup>
   <ItemGroup>
