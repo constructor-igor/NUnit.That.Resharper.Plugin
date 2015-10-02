@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="NUnitSampleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TheorySampleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
