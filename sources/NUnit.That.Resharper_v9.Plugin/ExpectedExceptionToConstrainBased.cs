@@ -8,12 +8,9 @@ using JetBrains.ReSharper.Feature.Services.ContextActions;
 using JetBrains.ReSharper.Feature.Services.CSharp.Analyses.Bulbs;
 using JetBrains.ReSharper.Feature.Services.Intentions;
 using JetBrains.ReSharper.Feature.Services.LinqTools;
-using JetBrains.ReSharper.I18n.Services;
 using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Cpp.Tree;
 using JetBrains.ReSharper.Psi.CSharp.Impl.Tree;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
-using JetBrains.ReSharper.Psi.Impl.CodeStyle;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.TextControl;
 using JetBrains.Util;
@@ -47,7 +44,7 @@ namespace NUnit.That.Resharper_v9.Plugin
         {
             bool moveCaretToUpdatedStatement = false;
             IMethodDeclaration methodDeclaration = m_provider.GetSelectedElement<IMethodDeclaration>(false, false);
-            var statement = m_provider.GetSelectedElement<IStatement>(false, false);
+            IStatement statement = m_provider.GetSelectedElement<IStatement>(false, false);
 
             if (statement == null && methodDeclaration!=null)
             {

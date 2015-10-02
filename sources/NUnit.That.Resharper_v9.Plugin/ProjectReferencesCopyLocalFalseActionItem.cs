@@ -9,6 +9,7 @@ using JetBrains.ProjectModel;
 using JetBrains.ProjectModel.DataContext;
 using JetBrains.ReSharper.Feature.Services.Actions;
 using JetBrains.UI.ActionsRevised;
+using NUnit.That.Resharper_v9.Plugin.TabManager;
 
 namespace NUnit.That.Resharper_v9.Plugin
 {
@@ -29,9 +30,9 @@ namespace NUnit.That.Resharper_v9.Plugin
             List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
             if (copyLocalFalseReferencesList.Count > 0)
             {
-                OutputTabManager outputTabManager = new OutputTabManager()
+                ITabManager outputTabManager = new OutputTabManager()
                     .OutputHeader()
-                    .OutputString("\nList of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
+                    .OutputString("List of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
                 copyLocalFalseReferencesList
                     .ForEach(r => outputTabManager.OutputString("\t{0}\n", r.Name));
                 outputTabManager.OutputString("\n");

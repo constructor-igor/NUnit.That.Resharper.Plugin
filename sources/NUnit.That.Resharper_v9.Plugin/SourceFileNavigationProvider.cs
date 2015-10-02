@@ -53,7 +53,7 @@ namespace NUnit.That.Resharper_v9.Plugin
         [CanBeNull]
         private static FileSystemPath GetPathByContext([NotNull] IDataContext context)
         {
-            var projectModelElement = context.GetData(DataConstants.PROJECT_MODEL_ELEMENT);
+            IProjectModelElement projectModelElement = context.GetData(DataConstants.PROJECT_MODEL_ELEMENT);
 
             var projectItem = projectModelElement as IProjectItem;
             if (projectItem == null)

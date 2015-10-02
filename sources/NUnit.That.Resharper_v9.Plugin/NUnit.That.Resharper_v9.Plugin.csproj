@@ -153,10 +153,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TabManager\BasicTabManager.cs" />
+    <Compile Include="TabManager\DebugTabManager.cs" />
     <Compile Include="ExpectedExceptionToConstrainBased.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="FolderNavigationProvider.cs" />
-    <Compile Include="OutputTabManager.cs" />
+    <Compile Include="TabManager\ITabManager.cs" />
+    <Compile Include="TabManager\OutputTabManager.cs" />
     <Compile Include="ProjectOutputInExplorerActionItem.cs" />
     <Compile Include="ProjectOutputNavigationProvider.cs" />
     <Compile Include="ProjectReferencesCopyLocalFalseActionItem.cs" />

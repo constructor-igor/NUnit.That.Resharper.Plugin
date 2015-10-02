@@ -11,7 +11,7 @@ using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
-using DataConstants = JetBrains.ReSharper.Psi.Services.DataConstants;
+using NUnit.That.Resharper_v9.Plugin.TabManager;
 
 namespace NUnit.That.Resharper_v9.Plugin
 {
@@ -57,33 +57,43 @@ namespace NUnit.That.Resharper_v9.Plugin
         [CanBeNull]
         private static FileSystemPath GetPathByContext([NotNull] IDataContext context)
         {
-            ITreeNode selectedExpression = context.GetData(DataConstants.SELECTED_EXPRESSION);
+            //ITreeNode selectedExpression = context.GetData(DataConstants.SELECTED_EXPRESSION);
+            ITreeNode selectedExpression = context.GetSelectedTreeNode<ITreeNode>();
             return GetFilePath(selectedExpression);
         }
 
         public static FileSystemPath GetFilePath(ITreeNode selectedExpression)
         {
+            ITabManager outputTabManager = DebugTabManager.Create();
             try
             {
+                outputTabManager.OutputLine("text: ", selectedExpression.GetText());
+
                 CSharpGenericToken stringExpression;
                 ICSharpLiteralExpression literalExpression = selectedExpression as ICSharpLiteralExpression;
                 if (literalExpression != null)
                 {
                     stringExpression = literalExpression.Literal as CSharpGenericToken;
+                    outputTabManager.OutputLine("literalExpression != null");
                 }
                 else
                 {
                     stringExpression = selectedExpression as CSharpGenericToken;
+                    outputTabManager.OutputLine("literalExpression == null, stringExpression={0}", stringExpression);
                 }
 
                 if (stringExpression != null)
                 {
+                    outputTabManager.OutputLine("stringExpression: ", stringExpression.GetText());
+
                     string stringLiteralValue = stringExpression.GetText();
                     TokenNodeType tokenType = stringExpression.GetTokenType();
+                    outputTabManager.OutputLine("tokenType = {0}", tokenType.ToString());
                     switch (tokenType.ToString())
                     {
                         case "STRING_LITERAL_VERBATIM":
                             stringLiteralValue = stringLiteralValue.Substring(2, stringLiteralValue.Length - 3);
+                            outputTabManager.OutputLine("stringLiteralValue = {0}", stringLiteralValue);
                             if (File.Exists(stringLiteralValue))
                             {
                                 return FileSystemPath.CreateByCanonicalPath(stringLiteralValue);
@@ -100,8 +110,9 @@ namespace NUnit.That.Resharper_v9.Plugin
                 }
                 return null;
             }
-            catch
+            catch (Exception ex)
             {
+                outputTabManager.OutputString("exception: ", ex.Message);
                 return null;
             }
         }

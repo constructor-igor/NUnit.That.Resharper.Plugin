@@ -7,6 +7,7 @@ using JetBrains.ProjectModel;
 using JetBrains.ProjectModel.DataContext;
 using JetBrains.ReSharper.Feature.Services.Actions;
 using JetBrains.UI.ActionsRevised;
+using NUnit.That.Resharper_v9.Plugin.TabManager;
 
 namespace NUnit.That.Resharper_v9.Plugin
 {

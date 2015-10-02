@@ -93,10 +93,17 @@ namespace NUnit_v2_samples
         public void Test_OpenFolder_Navigation()
         {
             string fileName1 = @"d:\file.txt";
-            string fileName2 = "d:\\file.txt";
+            const string FILE_NAME2 = "d:\\file.txt";
+
+            Foo(@"d:\file.txt");
 
             Assert.That(File.Exists(fileName1), Is.True);
-            Assert.That(File.Exists(fileName2), Is.True);
+            Assert.That(File.Exists(FILE_NAME2), Is.True);
+        }
+
+        void Foo(string fileName)
+        {
+            
         }
     }
 }

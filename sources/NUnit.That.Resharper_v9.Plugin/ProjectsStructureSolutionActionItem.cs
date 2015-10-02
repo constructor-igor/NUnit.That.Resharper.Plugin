@@ -10,6 +10,7 @@ using JetBrains.ProjectModel.Model2.References;
 using JetBrains.ReSharper.Feature.Services.Actions;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
+using NUnit.That.Resharper_v9.Plugin.TabManager;
 
 namespace NUnit.That.Resharper_v9.Plugin
 {
@@ -27,9 +28,9 @@ namespace NUnit.That.Resharper_v9.Plugin
             if (solution == null)
                 return;
 
-            OutputTabManager outputTabManager = new OutputTabManager()
+            ITabManager outputTabManager = new OutputTabManager()
                 .OutputHeader()
-                .OutputString("\nSolution: {0}", solution.Name);
+                .OutputString("Solution: {0}", solution.Name);
             Dictionary<string, ModuleDetails> modulesList = new Dictionary<string, ModuleDetails>();
             ICollection<IProject> allProjects = solution.GetAllProjects();
             foreach (IProject project in allProjects)
@@ -39,11 +40,11 @@ namespace NUnit.That.Resharper_v9.Plugin
                     List<IProjectToModuleReference> allReferences = project.GetModuleReferences(TargetFrameworkId.Default).ToList();
                     if (Enumerable.Any(allReferences))
                     {
-                        outputTabManager.
-                            OutputString("\nProject: {0}", project.Name).
-                            OutputString("; Output Directory: {0}", project.GetOutputDirectory()).
-                            OutputString("; Target Framework: {0}", project.TargetFrameworkIds.Select(t=>t.Name).ToArray().Join(",")).
-                            OutputString("\n References:");
+                        outputTabManager
+                            .OutputString("\nProject: {0}", project.Name)
+                            .OutputString("; Output Directory: {0}", project.GetOutputDirectory())
+                            .OutputString("; Target Framework: {0}", project.TargetFrameworkIds.Select(t=>t.Name).ToArray().Join(","))
+                            .OutputString("\n References:");
 
                         foreach (IProjectToModuleReference moduleReference in allReferences)
                         {
