@@ -23,7 +23,8 @@ namespace NUnit.That.Resharper_v9.Plugin
             ISolution solution = context.Projects().Solution;
             ICollection<IProject> allProjects = solution.GetAllProjects();
 
-            OutputTabManager outputTabManager = new OutputTabManager();
+            OutputTabManager outputTabManager = new OutputTabManager()
+                .OutputHeader();
             foreach (IProject project in allProjects)
             {
                 if (project != null)
@@ -34,8 +35,9 @@ namespace NUnit.That.Resharper_v9.Plugin
                         List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
                         if (copyLocalFalseReferencesList.Count > 0)
                         {
-                            outputTabManager.OutputString("\nProject: {0}", project.Name);
-                            outputTabManager.OutputString("\nList of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
+                            outputTabManager
+                                .OutputString("\nProject: {0}", project.Name)
+                                .OutputString("\nList of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
                             copyLocalFalseReferencesList.ForEach(r => outputTabManager.OutputString("\t{0}\n", r.Name));
                             outputTabManager.OutputString("\n");
                         }

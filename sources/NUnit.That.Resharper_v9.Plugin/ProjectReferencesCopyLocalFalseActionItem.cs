@@ -29,8 +29,9 @@ namespace NUnit.That.Resharper_v9.Plugin
             List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
             if (copyLocalFalseReferencesList.Count > 0)
             {
-                OutputTabManager outputTabManager = new OutputTabManager();
-                outputTabManager.OutputString("\nList of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
+                OutputTabManager outputTabManager = new OutputTabManager()
+                    .OutputHeader()
+                    .OutputString("\nList of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
                 copyLocalFalseReferencesList
                     .ForEach(r => outputTabManager.OutputString("\t{0}\n", r.Name));
                 outputTabManager.OutputString("\n");
