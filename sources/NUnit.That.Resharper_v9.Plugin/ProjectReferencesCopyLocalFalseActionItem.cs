@@ -26,7 +26,7 @@ namespace NUnit.That.Resharper_v9.Plugin
         }
         public void Execute(IDataContext context, DelegateExecute nextExecute)
         {            
-            List<IProjectToModuleReference> allReferences = GetReferencesList(context).ToList();
+            List<IProjectToModuleReference> allReferences = GetReferencesList(context);
             List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
             if (copyLocalFalseReferencesList.Count > 0)
             {
