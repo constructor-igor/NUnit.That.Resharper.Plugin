@@ -50,6 +50,7 @@ Project menu commands:
 ###### Project menu Commands
 - **Open Output Folder in File Explorer** Open Windows Explorer on project output file
 - **Project: Show 'Copy Local == True' references in 'Output'** Show list of project's references with Copy Local == True
+- **Project: Set 'Copy Local == False' references in 'Output'** Set 'Copy Local' to False for all references
 
 ###### Solution menu Commands
 - **Solution: Show projects structure in 'Output'** Show list of all projects' references with version and location. Shows lists of multi-version and multi-location references.
