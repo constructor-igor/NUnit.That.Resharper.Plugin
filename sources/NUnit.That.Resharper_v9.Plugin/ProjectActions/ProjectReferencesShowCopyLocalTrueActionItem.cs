@@ -11,34 +11,33 @@ using JetBrains.ReSharper.Feature.Services.Actions;
 using JetBrains.UI.ActionsRevised;
 using NUnit.That.Resharper_v9.Plugin.TabManager;
 
-namespace NUnit.That.Resharper_v9.Plugin
+namespace NUnit.That.Resharper_v9.Plugin.ProjectActions
 {
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectReferencesCopyLocalFalseActionItem", "Project: Show 'Copy Local == True' references in 'Output'", Id = 20203)]
-    public class ProjectReferencesCopyLocalFalseActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Modify_Project>
+    [Action("NUnit.That.Resharper_v9.Plugin.ProjectActions.ProjectReferencesShowCopyLocalTrueActionItem", "Project: Show 'Copy Local == True' references in 'Output'", Id = 20203)]
+    public class ProjectReferencesShowCopyLocalTrueActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Modify_Project>
     {
         #region Implementation of IExecutableAction
         public bool Update(IDataContext context, ActionPresentation presentation, DelegateUpdate nextUpdate)
         {
-            int count = GetReferencesList(context).Count(r=>r.CopyLocal);
+            int count = GetReferencesList(context).Count(r => r.CopyLocal);
             if (count > 0)
                 presentation.Text = String.Format("Project: Show 'Copy Local == True' references ({0}) in 'Output'", count);
             return count > 0;
         }
         public void Execute(IDataContext context, DelegateExecute nextExecute)
-        {            
+        {
             List<IProjectToModuleReference> allReferences = GetReferencesList(context);
-            List<IProjectToModuleReference> copyLocalFalseReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
-            if (copyLocalFalseReferencesList.Count > 0)
+            List<IProjectToModuleReference> copyLocalTrueReferencesList = allReferences.Where(r => r.CopyLocal).ToList();
+            if (copyLocalTrueReferencesList.Count > 0)
             {
                 ITabManager outputTabManager = new OutputTabManager()
                     .OutputHeader()
-                    .OutputString("List of 'Copy Local' == True references ({0}):\n", copyLocalFalseReferencesList.Count, allReferences.Count);
-                copyLocalFalseReferencesList
+                    .OutputString("List of 'Copy Local' == True references ({0}):\n", copyLocalTrueReferencesList.Count, allReferences.Count);
+                copyLocalTrueReferencesList
                     .ForEach(r => outputTabManager.OutputString("\t{0}\n", r.Name));
                 outputTabManager.OutputString("\n");
             }
         }
-
         #endregion
 
         [NotNull]

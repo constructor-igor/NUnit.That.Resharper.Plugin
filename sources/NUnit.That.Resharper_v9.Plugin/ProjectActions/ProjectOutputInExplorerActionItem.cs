@@ -8,7 +8,7 @@ using JetBrains.ReSharper.Feature.Services.Actions;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
 
-namespace NUnit.That.Resharper_v9.Plugin
+namespace NUnit.That.Resharper_v9.Plugin.ProjectActions
 {
     /*
      * 
@@ -26,7 +26,7 @@ namespace NUnit.That.Resharper_v9.Plugin
     Regards
     Matt
      * */
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectOutputInExplorerActionItem", "Open Output Folder in File Explorer", Id = 20202)]
+    [Action("NUnit.That.Resharper_v9.Plugin.ProjectActions.ProjectOutputInExplorerActionItem", "Open Output Folder in File Explorer", Id = 20202)]
     public class ProjectOutputInExplorerActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Modify_Project>
     {
         #region Implementation of IExecutableAction

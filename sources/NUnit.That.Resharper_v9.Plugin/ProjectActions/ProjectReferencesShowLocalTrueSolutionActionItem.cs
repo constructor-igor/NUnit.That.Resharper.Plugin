@@ -9,10 +9,10 @@ using JetBrains.ReSharper.Feature.Services.Actions;
 using JetBrains.UI.ActionsRevised;
 using NUnit.That.Resharper_v9.Plugin.TabManager;
 
-namespace NUnit.That.Resharper_v9.Plugin
+namespace NUnit.That.Resharper_v9.Plugin.ProjectActions
 {
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectReferencesCopyLocalFalseSolutionActionItem", "Solution: Show 'Copy Local == True' references in 'Output'", Id = 20204)]
-    public class ProjectReferencesCopyLocalFalseSolutionActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Misc>
+    [Action("NUnit.That.Resharper_v9.Plugin.ProjectActions.ProjectReferencesShowLocalTrueSolutionActionItem", "Solution: Show 'Copy Local == True' references in 'Output'", Id = 20204)]
+    public class ProjectReferencesShowLocalTrueSolutionActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Misc>
     {
         #region Implementation of IExecutableAction
         public bool Update(IDataContext context, ActionPresentation presentation, DelegateUpdate nextUpdate)

@@ -12,9 +12,9 @@ using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
 using NUnit.That.Resharper_v9.Plugin.TabManager;
 
-namespace NUnit.That.Resharper_v9.Plugin
+namespace NUnit.That.Resharper_v9.Plugin.ProjectActions
 {
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectsStructureSolutionActionItem", "Solution: Show projects structure in 'Output'", Id = 20205)]
+    [Action("NUnit.That.Resharper_v9.Plugin.ProjectActions.ProjectsStructureSolutionActionItem", "Solution: Show projects structure in 'Output'", Id = 20205)]
     public class ProjectsStructureSolutionActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Misc>
     {
         #region Implementation of IExecutableAction
