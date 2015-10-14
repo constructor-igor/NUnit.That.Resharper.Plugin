@@ -16,7 +16,7 @@ using VSLangProj;
 
 namespace NUnit.That.Resharper_v9.Plugin.ProjectActions
 {
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectActions.ProjectReferencesSetCopyLocalFalseActionItem", "Project: Set 'Copy Local == False' references in 'Output'", Id = 20206)]
+    [Action("NUnit.That.Resharper_v9.Plugin.ProjectActions.ProjectReferencesSetCopyLocalFalseActionItem", "Project: Set 'Copy Local = False' references in 'Output'", Id = 20206)]
     public class ProjectReferencesSetCopyLocalFalseActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Modify_Project>
     {
         #region Implementation of IExecutableAction
@@ -24,7 +24,7 @@ namespace NUnit.That.Resharper_v9.Plugin.ProjectActions
         {
             int count = GetReferencesList(context).Count(r=>r.CopyLocal);
             if (count > 0)
-                presentation.Text = String.Format("Project: Set 'Copy Local == False' references ({0}) in 'Output'", count);
+                presentation.Text = String.Format("Project: Set 'Copy Local = False' references ({0}) in 'Output'", count);
             return count > 0;
         }
         public void Execute(IDataContext context, DelegateExecute nextExecute)
