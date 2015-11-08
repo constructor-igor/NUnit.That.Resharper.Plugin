@@ -11,9 +11,9 @@ using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
-using NUnit.That.Resharper_v9.Plugin.TabManager;
+using NUnit.That.Resharper_v10.Plugin.TabManager;
 
-namespace NUnit.That.Resharper_v9.Plugin.Navigators
+namespace NUnit.That.Resharper_v10.Plugin.Navigators
 {
     [ActionHandler(null)]
     public class FolderNavigation : ContextNavigationActionBase<FolderNavigationProvider>

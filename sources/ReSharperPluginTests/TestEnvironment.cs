@@ -4,13 +4,15 @@ using JetBrains.TestFramework;
 using JetBrains.TestFramework.Application.Zones;
 using NUnit.Framework;
 
-// See Zones below
-[ZoneDefinition]
-public interface IThatPluginTestZone : ITestsZone, IRequire<PsiFeatureTestZone>
-{
-}
+namespace ReSharperPluginTests
+{ // See Zones below
+    [ZoneDefinition]
+    public interface IThatPluginTestZone : ITestsZone, IRequire<PsiFeatureTestZone>
+    {
+    }
 
-[SetUpFixture]
-public class TestEnvironment : ExtensionTestEnvironmentAssembly<IThatPluginTestZone>
-{
+    [SetUpFixture]
+    public class TestEnvironment : ExtensionTestEnvironmentAssembly<IThatPluginTestZone>
+    {
+    }
 }

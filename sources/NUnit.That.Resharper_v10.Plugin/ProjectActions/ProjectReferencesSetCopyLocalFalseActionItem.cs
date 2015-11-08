@@ -11,12 +11,12 @@ using JetBrains.ReSharper.Feature.Services.Actions;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.VsIntegration.ProjectDocuments;
 using JetBrains.VsIntegration.ProjectDocuments.Projects.Builder;
-using NUnit.That.Resharper_v9.Plugin.TabManager;
+using NUnit.That.Resharper_v10.Plugin.TabManager;
 using VSLangProj;
 
-namespace NUnit.That.Resharper_v9.Plugin.ProjectActions
+namespace NUnit.That.Resharper_v10.Plugin.ProjectActions
 {
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectActions.ProjectReferencesSetCopyLocalFalseActionItem", "Project: Set 'Copy Local = False' references in 'Output'", Id = 20206)]
+    [Action("NUnit.That.Resharper_v10.Plugin.ProjectActions.ProjectReferencesSetCopyLocalFalseActionItem", "Project: Set 'Copy Local = False' references in 'Output'", Id = 20206)]
     public class ProjectReferencesSetCopyLocalFalseActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Modify_Project>
     {
         #region Implementation of IExecutableAction

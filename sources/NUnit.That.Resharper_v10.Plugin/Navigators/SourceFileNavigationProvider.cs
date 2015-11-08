@@ -9,7 +9,7 @@ using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
 using DataConstants = JetBrains.ProjectModel.DataContext.DataConstants;
 
-namespace NUnit.That.Resharper_v9.Plugin.Navigators
+namespace NUnit.That.Resharper_v10.Plugin.Navigators
 {
     [ActionHandler(null)]
     public class SourceFileNavigation : ContextNavigationActionBase<SourceFileNavigationProvider>

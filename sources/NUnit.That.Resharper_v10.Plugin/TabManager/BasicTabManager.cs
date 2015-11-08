@@ -1,8 +1,9 @@
 using System;
 using JetBrains.ReSharper.Resources.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 
-namespace NUnit.That.Resharper_v9.Plugin.TabManager
+namespace NUnit.That.Resharper_v10.Plugin.TabManager
 {
     public abstract class BasicTabManager : ITabManager
     {
@@ -17,13 +18,13 @@ namespace NUnit.That.Resharper_v9.Plugin.TabManager
             const int DO_NOT_CLEAR_WITH_SOLUTION = 0;
 
             // Get the output window
-            JetBrains.Util.Lazy.Lazy<IVsOutputWindow> outputWindow = Shell.Instance.GetComponent<JetBrains.Util.Lazy.Lazy<IVsOutputWindow>>();
+            Lazy<IVsOutputWindow> outputWindow = Shell.Instance.GetComponent<Lazy<IVsOutputWindow>>();
 
             int hr = outputWindow.Value.CreatePane(tabGuid, tabCaption, VISIBLE, DO_NOT_CLEAR_WITH_SOLUTION);
 
             // Get the pane
             //IVsOutputWindowPane outputWindowPane;
-            hr = outputWindow.Value.GetPane(tabGuid, out m_outputWindowPane);
+            hr = outputWindow.Value.GetPane(tabGuid, out m_outputWindowPane);            
         }
         #region ITabManager
         public ITabManager OutputString(string text, params object[] parameters)

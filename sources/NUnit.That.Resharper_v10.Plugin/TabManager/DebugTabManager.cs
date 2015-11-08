@@ -1,6 +1,6 @@
 using System;
 
-namespace NUnit.That.Resharper_v9.Plugin.TabManager
+namespace NUnit.That.Resharper_v10.Plugin.TabManager
 {
     public class DebugTabManager : BasicTabManager
     {

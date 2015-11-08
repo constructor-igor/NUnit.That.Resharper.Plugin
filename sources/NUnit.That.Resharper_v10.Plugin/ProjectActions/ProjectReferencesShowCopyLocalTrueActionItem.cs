@@ -9,11 +9,11 @@ using JetBrains.ProjectModel;
 using JetBrains.ProjectModel.DataContext;
 using JetBrains.ReSharper.Feature.Services.Actions;
 using JetBrains.UI.ActionsRevised;
-using NUnit.That.Resharper_v9.Plugin.TabManager;
+using NUnit.That.Resharper_v10.Plugin.TabManager;
 
-namespace NUnit.That.Resharper_v9.Plugin.ProjectActions
+namespace NUnit.That.Resharper_v10.Plugin.ProjectActions
 {
-    [Action("NUnit.That.Resharper_v9.Plugin.ProjectActions.ProjectReferencesShowCopyLocalTrueActionItem", "Project: Show 'Copy Local == True' references in 'Output'", Id = 20203)]
+    [Action("NUnit.That.Resharper_v10.Plugin.ProjectActions.ProjectReferencesShowCopyLocalTrueActionItem", "Project: Show 'Copy Local == True' references in 'Output'", Id = 20203)]
     public class ProjectReferencesShowCopyLocalTrueActionItem : IExecutableAction, IInsertLast<IntoSolutionItemGroup_Modify_Project>
     {
         #region Implementation of IExecutableAction

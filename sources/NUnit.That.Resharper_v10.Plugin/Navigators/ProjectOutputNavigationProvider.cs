@@ -8,7 +8,7 @@ using JetBrains.ReSharper.Feature.Services.Navigation.ContextNavigation;
 using JetBrains.UI.ActionsRevised;
 using JetBrains.Util;
 
-namespace NUnit.That.Resharper_v9.Plugin.Navigators
+namespace NUnit.That.Resharper_v10.Plugin.Navigators
 {
     [ActionHandler(null)]
     public class ProjectOutputNavigation : ContextNavigationActionBase<ProjectOutputNavigationProvider>

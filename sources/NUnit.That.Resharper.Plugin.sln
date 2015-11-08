@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProjects", "TestProject
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharperPluginTests", "ReSharperPluginTests\ReSharperPluginTests.csproj", "{3487B4B7-F6F0-406E-AD82-5197AF223765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.That.Resharper_v9.Plugin", "NUnit.That.Resharper_v9.Plugin\NUnit.That.Resharper_v9.Plugin.csproj", "{BB114BF8-FC0A-4729-AD68-04BE2F0C639A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.That.Resharper_v10.Plugin", "NUnit.That.Resharper_v10.Plugin\NUnit.That.Resharper_v10.Plugin.csproj", "{BB114BF8-FC0A-4729-AD68-04BE2F0C639A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
