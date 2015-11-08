@@ -4,3 +4,5 @@ packages/
 *.pdb
 *.suo
 msbuild.log
+/sources/NUnit.That.Resharper.Plugin.sln.DotSettings.user
+/screens/Resharper-v10-compilation-error.png

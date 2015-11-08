@@ -1,7 +1,6 @@
 using System;
 using JetBrains.ReSharper.Resources.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 
 namespace NUnit.That.Resharper_v10.Plugin.TabManager
 {
