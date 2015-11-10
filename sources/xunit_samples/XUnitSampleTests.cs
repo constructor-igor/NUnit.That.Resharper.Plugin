@@ -22,7 +22,13 @@ namespace xunit_samples
         //[ExpectedException]
         public void ExpectedExceptionTestV1()
         {
-            double r = Div(2, 0);
+            double r = DivException(2, 0);
+        }
+        [Fact]
+        //[ExpectedException(typeof(ArgumentException))]
+        public void ExpectedExceptionTestV1_with_type()
+        {
+            double r = DivArgumentException(2, 0);
         }
 
         int Add(int x, int y)
@@ -35,6 +41,18 @@ namespace xunit_samples
             if (y==0)
                 throw new ArgumentException();
             return x/y;
+        }
+        double DivException(double x, double y)
+        {
+            if (y == 0)
+                throw new Exception();
+            return x / y;
+        }
+        double DivArgumentException(double x, double y)
+        {
+            if (y == 0)
+                throw new ArgumentException();
+            return x / y;
         }
     }
 }

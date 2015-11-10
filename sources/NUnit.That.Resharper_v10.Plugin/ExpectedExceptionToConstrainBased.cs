@@ -33,6 +33,9 @@ namespace NUnit.That.Resharper_v10.Plugin
             "NUnit.Framework.ExpectedException", 
             "NUnit.Framework.ExpectedExceptionAttribute"
         };
+        private readonly List<string> m_xUnitAttributesList = new List<string> {"Fact"};
+        bool m_xUnitDetected = false;
+
         public ExpectedExceptionToConstrainBased(ICSharpContextActionDataProvider provider)
         {
             m_provider = provider;
@@ -64,6 +67,8 @@ namespace NUnit.That.Resharper_v10.Plugin
                     foundAttribute = methodDeclaration.GetAttributeExact(m_attributesList);
                     if (foundAttribute != null)
                     {
+                        m_xUnitDetected = methodDeclaration.GetAttributeExact(m_xUnitAttributesList) != null;
+
                         foreach (ICSharpArgument argument in foundAttribute.Arguments)
                         {
                             IExpressionType exprType = argument.GetExpressionType();
@@ -114,16 +119,28 @@ namespace NUnit.That.Resharper_v10.Plugin
                 object[] newStatementExpression;
                 if (expectedExceptionTypeOfExpr == null)
                 {
-                    //const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
-                    if (expectedExceptionMessage == null)
+                    if (m_xUnitDetected)
                     {
-                        newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.Exception);";
-                        newStatementExpression = new object[] {statementText.ToString()};
+                        //if (expectedExceptionMessage == null)
+                        {
+                            // Assert.Throws<Exception>(() => Div(2, 0));
+                            newExpressionFormat = "Assert.Throws<Exception>(" + codeFormat + ");";
+                            newStatementExpression = new object[] { statementText.ToString() };
+                        }
                     }
                     else
                     {
-                        newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.Exception.And.Message.EqualTo($1));";
-                        newStatementExpression = new object[] { statementText.ToString(), expectedExceptionMessage };
+                        //const string NEW_STATEMENT_FORMAT = "Assert.That(()=>$0, Throws.InstanceOf<Exception>());";
+                        if (expectedExceptionMessage == null)
+                        {
+                            newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.Exception);";
+                            newStatementExpression = new object[] {statementText.ToString()};
+                        }
+                        else
+                        {
+                            newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.Exception.And.Message.EqualTo($1));";
+                            newStatementExpression = new object[] {statementText.ToString(), expectedExceptionMessage};
+                        }
                     }
                 }
                 else
@@ -131,11 +148,19 @@ namespace NUnit.That.Resharper_v10.Plugin
                     //Assert.That(foo2, Throws.TypeOf(typeof(NotImplementedException)));
                     if (expectedExceptionMessage == null)
                     {
-                        //newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1));";
-                        //newStatementExpression = new object[] { statementText.ToString(), expectedExceptionTypeOfExpr };
+                        if (m_xUnitDetected)
+                        {
+                            newExpressionFormat = "Assert.Throws<$1>(" + codeFormat + ");";
+                            newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType };
+                        }
+                        else
+                        {
+                            //newExpressionFormat = "Assert.That(()=>{$0}, Throws.TypeOf($1));";
+                            //newStatementExpression = new object[] { statementText.ToString(), expectedExceptionTypeOfExpr };
 
-                        newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.TypeOf<$1>());";
-                        newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType };
+                            newExpressionFormat = "Assert.That(" + codeFormat + ", Throws.TypeOf<$1>());";
+                            newStatementExpression = new object[] { statementText.ToString(), expectedExceptionType };
+                        }
                     }
                     else
                     {
@@ -167,7 +192,12 @@ namespace NUnit.That.Resharper_v10.Plugin
         }
         public override string Text
         {
-            get { return "Replace with Assert.That"; }
+            get
+            {
+                if (m_xUnitDetected)
+                    return "[xunit] Replace with Assert.Throws";
+                return "Replace with Assert.That";
+            }
         }
         #endregion
 
@@ -183,6 +213,8 @@ namespace NUnit.That.Resharper_v10.Plugin
             bool expectedExceptionDefined = methodDeclaration.GetAttributeExact(m_attributesList) != null;
             if (!expectedExceptionDefined)
                 return false;
+
+            m_xUnitDetected = methodDeclaration.GetAttributeExact(m_xUnitAttributesList) != null;
 
             IStatement statement = m_provider.GetSelectedElement<IStatement>(false, false);
             if (SupportedStatement(statement))
