@@ -2,6 +2,7 @@
 [Resharper](https://www.jetbrains.com/resharper/) plugin for transfer to Assert.That (include NUnit v3 support).
 
 NUnit.That.Resharper.Plugin helps to convert Assert methods and nunit attributes to Assert.That method.
+Added support for transfer ExpectedException attribute for **xunit** too.
 
 - NUnit.That.Resharper.Plugin in [Resharper gallery v10](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v10.Plugin/)
 - NUnit.That.Resharper.Plugin in [Resharper gallery v9](https://resharper-plugins.jetbrains.com/packages/NUnit.That.Resharper_v9.Plugin/)
@@ -31,6 +32,10 @@ Project menu commands:
 
 ![alt tag](screens/ShowCopyLocalFalse_ProjectMenu.png)
 ![alt tag](screens/NUnit.That.CopyLocal.Output.png)
+
+XUnit sample:
+
+![alt tag](screens/xunit-ExpectedException-sample.png)
 
 ### Short List:
 
