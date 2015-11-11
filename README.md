@@ -25,6 +25,8 @@ or the attribute can be converted to Assert.That for last statement in method's 
 
 ![alt tag](screens/AttributeExpectedExceptionToAssertThat.png)
 
+[Other way to support **ExpectedException** attribute in NUnit v3 (provided by NUnit Team)] (https://github.com/nunit/nunit-csharp-samples/tree/master/ExpectedExceptionExample)
+
 Advanced "Navigate To.." commands:
 
 ![alt tag](screens/NavigateTo.png)
